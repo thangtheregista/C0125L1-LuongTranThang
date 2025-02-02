@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Đăng Ký</title>
+</head>
+<body>
+<h2>Form Đăng Ký</h2>
+<form action="#" method="post">
+  <label for="fullname">Họ và Tên:</label>
+  <input type="text" id="fullname" name="fullname" required><br><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <label for="password">Mật khẩu:</label>
+  <input type="password" id="password" name="password" required><br><br>
+
+  <label>Giới tính:</label>
+  <input type="radio" id="male" name="gender" value="Nam" required>
+  <label for="male">Nam</label>
+  <input type="radio" id="female" name="gender" value="Nữ">
+  <label for="female">Nữ</label>
+  <input type="radio" id="other" name="gender" value="Khác">
+  <label for="other">Khác</label><br><br>
+
+  <label for="dob">Ngày sinh:</label>
+  <input type="date" id="dob" name="dob" required><br><br>
+
+  <label>Sở thích:</label><br>
+  <input type="checkbox" id="music" name="hobby" value="Âm nhạc">
+  <label for="music">Âm nhạc</label>
+  <input type="checkbox" id="sports" name="hobby" value="Thể thao">
+  <label for="sports">Thể thao</label>
+  <input type="checkbox" id="reading" name="hobby" value="Đọc sách">
+  <label for="reading">Đọc sách</label>
+  <input type="checkbox" id="travel" name="hobby" value="Du lịch">
+  <label for="travel">Du lịch</label><br><br>
+
+  <label for="bio">Giới thiệu bản thân:</label><br>
+  <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br><br>
+
+  <input type="submit" value="Đăng ký">
+  <input type="reset" value="Làm lại">
+</form>
+</body>
+</html>
