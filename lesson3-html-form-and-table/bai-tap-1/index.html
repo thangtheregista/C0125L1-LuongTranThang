@@ -3,31 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background: lightblue;
+        }
+        form {
+            background: white;
+            width: 500px;
+        }
+        table{
+            width: 100%;
+        }
+        input {
+            width: 100%;
+        }
+        th {
+            background: red;
+        }
+        td {
+
+        }
+        .label {
+            color: blue;
+        }
+    </style>
 </head>
 <body>
     <form>
-        <h1>
-            Sở thích của bạn
-        </h1>
+
         <table>
             <tr>
+                <th colspan="4">
+                    Sở thích của bạn
+                </th>
+            </tr>
+            <tr>
                 <td>
-                    <label for="name">Họ và tên</label>
+                    <label class="label" for="name">Họ và tên</label>
                 </td>
-                <td  >
+                <td  colspan="3">
                     <input type="text" name="yourname" id="name">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="email">Email</label>
+                    <label class="label" for="email">Email</label>
                 </td>
-                <td>
+                <td  colspan="3">
                     <input type="text" name="email" id="email">
                 </td>
             </tr>
             <tr>
-                <td rowspan="3">
+                <td rowspan="3" class="label">
                     Sở thích
                 </td>
                 <td>
@@ -63,10 +93,13 @@
             </tr>
             <tr>
                 <td>
+
+                </td>
+                <td>
                     <input type="submit" value="Gửi thông tin">
                 </td>
                 <td>
-                    <button>Nhập lại</button>
+                    <input type="reset" value="Nhập lại">
                 </td>
             </tr>
         </table>
