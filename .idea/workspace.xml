@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd37758a-edbc-4a8e-90e2-9f37872e0de1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/bai-tap-1/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/bai-tap-1/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson3-html-form-and-table/bai-tap-1/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -37,6 +36,7 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/tranh/WebstormProjects/codegym/portfolio/images",
     "list.type.of.created.stylesheet": "CSS",
@@ -71,7 +71,8 @@
       <workItem from="1737725485434" duration="523000" />
       <workItem from="1738394865995" duration="626000" />
       <workItem from="1738488579516" duration="1592000" />
-      <workItem from="1738585324792" duration="1189000" />
+      <workItem from="1738585324792" duration="1871000" />
+      <workItem from="1738587978110" duration="1445000" />
     </task>
     <servers />
   </component>
