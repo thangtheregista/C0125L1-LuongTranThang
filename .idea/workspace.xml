@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd37758a-edbc-4a8e-90e2-9f37872e0de1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lesson-2-html-co-ban/bai-tap-3/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson-2-html-co-ban/bai-tap-3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson-2-html-co-ban/bai-tap-4/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,7 @@
       <workItem from="1738585324792" duration="1871000" />
       <workItem from="1738587978110" duration="4576000" />
       <workItem from="1738665578862" duration="2702000" />
-      <workItem from="1738679538815" duration="2697000" />
+      <workItem from="1738679538815" duration="3003000" />
     </task>
     <servers />
   </component>
