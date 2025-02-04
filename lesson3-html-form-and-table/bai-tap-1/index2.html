@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+        form {
+            background: yellow;
+        }
+        th {
+            color: blue;
+            background: lightblue;
+        }
+        .label {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <table>
+            <tr>
+                <th colspan="2">
+                    ĐĂNG KÝ HỌC VIÊN
+                </th>
+            </tr>
+            <tr>
+                <td><label class="label" for="name">Họ và tên</label></td>
+                <td>
+                    <input type="text" name="name" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td><label class="label" for="dob">Ngày sinh</label></td>
+                <td>
+                    <input type="text" name="dob" id="dob">
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    Giới tính
+                </td>
+                <td>
+                    <input type="radio" name="sex" id="nam"><label for="nam">Nam</label>
+                    <input type="radio" name="sex" id="nu"><label for="nu">Nữ</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="label" for="address">Địa chỉ</label>
+                </td>
+                <td>
+                <textarea id="address" name="address">
+                </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="label" for="class">Lớp</label>
+                </td>
+                <td>
+                    <select name="class" id="class">
+                        <option value="" disabled selected>---Chọn lớp---</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="label" for="email">Email</label>
+                </td>
+                <td>
+                    <input type="text" name="email" id="email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="label" for="phone">Điện thoại</label>
+                </td>
+                <td>
+                    <input type="text" name="phone" id="phone">
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    <input type="submit" value="Đăng ký">
+                    <input type="reset" value="Nhập lại">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
