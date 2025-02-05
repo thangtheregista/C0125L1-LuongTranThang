@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    background-color: aliceblue;
+}
+div {
+    background-image: url("https://cdn.pixabay.com/photo/2022/10/23/13/55/autumn-7541345_1280.jpg");
+    height: 800px;
+    width: 800px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0056b3;
+}
