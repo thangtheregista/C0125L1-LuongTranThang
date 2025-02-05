@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd37758a-edbc-4a8e-90e2-9f37872e0de1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/bai-tap-3/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/bai-tap-3/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson5-css-box-model/bai-tap-1/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -77,7 +76,8 @@
       <workItem from="1738665578862" duration="2702000" />
       <workItem from="1738679538815" duration="3318000" />
       <workItem from="1738744824648" duration="440000" />
-      <workItem from="1738745284937" duration="1569000" />
+      <workItem from="1738745284937" duration="2236000" />
+      <workItem from="1738755760627" duration="605000" />
     </task>
     <servers />
   </component>
