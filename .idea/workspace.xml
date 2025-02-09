@@ -5,29 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd37758a-edbc-4a8e-90e2-9f37872e0de1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lesson3-html-form-and-table/thuc-hanh-4/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-1/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-1/index2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-1/index3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-1/index4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-1/index5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-1/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-2/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-2/index2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-2/index3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-2/index4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-2/index5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-2/index6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-2/index7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-3/avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-3/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson4-css-selectors/thuc-hanh-3/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson7-css-layout/bai-tap-1/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson7-css-layout/bai-tap-1/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson7-css-layout/bai-tap-2/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson7-css-layout/bai-tap-2/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson7-css-layout/bai-tap-3/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson7-css-layout/bai-tap-3/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson6-css-position/bai-tap-1/images/kate-trysh-4k-Vr25YVAw-unsplash.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson6-css-position/bai-tap-1/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson6-css-position/bai-tap-1/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson6-css-position/thuc-hanh-1/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson6-css-position/thuc-hanh-2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson6-css-position/thuc-hanh-3/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson6-css-position/thuc-hanh-4/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson6-css-position/thuc-hanh-4/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +23,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="tsconfig.json" />
         <option value="HTML File" />
         <option value="CSS File" />
       </list>
@@ -50,6 +36,9 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2s4r2pj4ruIWY5PelWrR4AaGCEq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -60,7 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/tranh/WebstormProjects/codegym/lesson4-css-selectors/thuc-hanh-3",
+    "last_opened_file_path": "C:/Users/tranh/WebstormProjects/codegym/lesson6-css-position/bai-tap-1/images",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -73,6 +62,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tranh\WebstormProjects\codegym\lesson6-css-position\bai-tap-1\images" />
       <recent name="C:\Users\tranh\WebstormProjects\codegym\lesson4-css-selectors\thuc-hanh-3" />
       <recent name="C:\Users\tranh\WebstormProjects\codegym\portfolio\images" />
     </key>
@@ -104,7 +94,11 @@
       <workItem from="1738755760627" duration="3820000" />
       <workItem from="1738906234568" duration="1815000" />
       <workItem from="1738923090312" duration="571000" />
-      <workItem from="1738923691698" duration="1148000" />
+      <workItem from="1738923691698" duration="1471000" />
+      <workItem from="1738927069087" duration="196000" />
+      <workItem from="1738927306605" duration="4634000" />
+      <workItem from="1739100521231" duration="594000" />
+      <workItem from="1739101239579" duration="5494000" />
     </task>
     <servers />
   </component>
