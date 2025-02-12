@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd37758a-edbc-4a8e-90e2-9f37872e0de1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lesson9-css-grid/thuc-hanh-1/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson9-css-grid/bai-tap-1/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +18,8 @@
       <list>
         <option value="tsconfig.json" />
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -94,7 +94,7 @@
       <workItem from="1739100521231" duration="594000" />
       <workItem from="1739101239579" duration="5655000" />
       <workItem from="1739188984973" duration="635000" />
-      <workItem from="1739361329856" duration="319000" />
+      <workItem from="1739361329856" duration="935000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: grid;
+            grid-template-areas:
+                    'header header header'
+                    'nav main aside'
+                    'footer footer footer';
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: 50px 1fr 50px;
+            height: 100vh;
+            background: #4CAF50;
+        }
+        header {
+            grid-area: header;
+        }
+        nav {
+            grid-area: nav;
+        }
+        main {
+            grid-area: main;
+        }
+        aside {
+            grid-area: aside;
+        }
+        footer {
+            grid-area: footer;
+        }
+        @media (max-width: 768px) {
+            body {
+                grid-template-areas:
+                        'header'
+                        'nav'
+                        'main'
+                        'aside'
+                        'footer';
+                grid-template-columns: 1fr;
+                grid-template-rows: 50px 1fr 1fr 1fr 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>Header</header>
+    <nav>Navigation</nav>
+    <aside>Sidebar</aside>
+    <main>Main content</main>
+    <footer>Footer</footer>
+</body>
+</html>
