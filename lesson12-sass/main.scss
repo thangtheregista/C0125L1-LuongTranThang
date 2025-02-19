@@ -1,0 +1,6 @@
+@use './scss/variables' as v;
+body {
+  font-family: v.$font;
+  font-size: v.$font-size;
+  color: v.$color-primary;
+}
