@@ -1,0 +1,12 @@
+BEGIN
+    // Nhập điểm các môn
+    INPUT Toan
+    INPUT Ly
+    INPUT Hoa
+
+    // Tính điểm trung bình
+    DiemTrungBinh ← (Toan + Ly + Hoa) / 3
+
+    // Hiển thị điểm trung bình
+    OUTP    UT DiemTrungBinh
+END
