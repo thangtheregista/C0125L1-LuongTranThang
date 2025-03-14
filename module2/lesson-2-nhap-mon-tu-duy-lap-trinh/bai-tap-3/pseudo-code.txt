@@ -1,0 +1,7 @@
+Bắt đầu
+   Nhập a, b, c
+   max ← a
+   Nếu b > max thì max ← b
+   Nếu c > max thì max ← c
+   In ra max
+Kết thúc

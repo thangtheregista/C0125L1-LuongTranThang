@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng JavaScript đầu tiên</title>
+</head>
+<body>
+<form action="">
+    <label for="name">Họ và tên:</label>
+    <input type="text" id="name" name="name">
+    <br>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+    <br>
+    <label for="phone">Số điện thoại:</label>
+    <input type="text" id="phone" name="phone">
+    <p>giới tính</p>
+    <input type="radio" name="gender" value="male"> Nam
+    <input type="radio" name="gender" value="female"> Nữ
+        <button type="button" onclick="alert('Xin chào ' + document.getElementById('name').value + document.getElementById('email').value +document.getElementById('phone').value + document.getElementsByName('gender').checked)">Xin chào</button>
+</form>
+</body>
+</html>

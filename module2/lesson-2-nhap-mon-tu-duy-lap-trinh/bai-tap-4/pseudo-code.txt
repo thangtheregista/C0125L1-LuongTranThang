@@ -1,0 +1,8 @@
+Bắt đầu
+   Nhập n
+   Nhập dãy số a[1], a[2], ..., a[n]
+   max ← a[1]
+   Lặp i từ 2 đến n:
+      Nếu a[i] > max thì max ← a[i]
+   In max
+Kết thúc

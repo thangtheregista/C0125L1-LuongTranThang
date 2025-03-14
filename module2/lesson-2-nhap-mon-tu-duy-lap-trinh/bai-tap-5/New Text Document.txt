@@ -1,0 +1,13 @@
+Bắt đầu
+   Nhập điểm số (score)
+   Nếu score ≥ 75 thì
+      In "Loại A"
+   Ngược lại nếu score ≥ 60 thì
+      In "Loại B"
+   Ngược lại nếu score ≥ 45 thì
+      In "Loại C"
+   Ngược lại nếu score ≥ 35 thì
+      In "Loại D"
+   Ngược lại
+      In "Loại E"
+Kết thúc

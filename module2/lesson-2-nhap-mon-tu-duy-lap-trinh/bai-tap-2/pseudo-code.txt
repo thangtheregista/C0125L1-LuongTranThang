@@ -1,0 +1,13 @@
+BEGIN
+    // Nhập số tiền USD
+    INPUT USD
+
+    // Nhập tỷ giá USD -> VNĐ
+    INPUT TyGia
+
+    // Tính số tiền VNĐ
+    VND ← USD * TyGia
+
+    // Hiển thị số tiền VNĐ
+    OUTPUT VND
+END
