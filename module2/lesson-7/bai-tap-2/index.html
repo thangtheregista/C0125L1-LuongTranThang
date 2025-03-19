@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="amount">Amount</label>
+<input type="number" name="amount" id="amount" placeholder="Nhập số tiền">
+<label for="from-currency">From currency</label>
+<select name="from-currency" id="from-currency">
+    <option value="usd">USD</option>
+    <option value="vnd">VND</option>
+</select>
+<select name="to-currency" id="to-currency">
+    <option value="usd">USD</option>
+    <option value="vnd">VND</option>
+</select>
+<button id="convertBtn">Convert</button>
+<p id="result"></p>
+<script>
+    document.getElementById('convertBtn').addEventListener('click', function() {
+        var amount = parseFloat(document.getElementById('amount').value);
+        var fromCurrency = document.getElementById('from-currency').value;
+        var toCurrency = document.getElementById('to-currency').value;
+        var result = 0;
+        if (fromCurrency === 'usd' && toCurrency === 'vnd') {
+            result = amount * 23000;
+        } else if (fromCurrency === 'vnd' && toCurrency === 'usd') {
+            result = amount / 23000;
+        } else {
+            result = amount;
+        }
+        document.getElementById('result').innerHTML = 'Result: ' + result;
+    });
+</script>
+</body>
+</html>
