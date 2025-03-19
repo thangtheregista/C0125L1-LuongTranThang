@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" name="variable1" id="variable1">
+<input type="number" name="variable2" id="variable2">
+<button onclick="add()">Add</button>
+<button onclick="subtract()">Subtract</button>
+<button onclick="multiply()">Multiply</button>
+<button onclick="divide()">Divide</button>
+<p id="result"></p>
+<script>
+    function add() {
+        let variable1 = document.getElementById('variable1').value;
+        let variable2 = document.getElementById('variable2').value;
+        let result = parseInt(variable1) + parseInt(variable2);
+        document.getElementById('result').innerHTML = result;
+    }
+
+    function subtract() {
+        let variable1 = document.getElementById('variable1').value;
+        let variable2 = document.getElementById('variable2').value;
+        let result = parseInt(variable1) - parseInt(variable2);
+        document.getElementById('result').innerHTML = result;
+    }
+
+    function multiply() {
+        let variable1 = document.getElementById('variable1').value;
+        let variable2 = document.getElementById('variable2').value;
+        let result = parseInt(variable1) * parseInt(variable2);
+        document.getElementById('result').innerHTML = result;
+    }
+
+    function divide() {
+        let variable1 = document.getElementById('variable1').value;
+        let variable2 = document.getElementById('variable2').value;
+        let result = parseInt(variable1) / parseInt(variable2);
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+</body>
+</html>
