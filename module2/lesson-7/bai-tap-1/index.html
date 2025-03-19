@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="vatLy">Nhập điểm Vật Lý</label>
+<input type="number" name="vatLy" id="vatLy" placeholder="Nhập điểm Vật Lý">
+<label for="hoaHoc">Nhập điểm Hóa Học</label>
+<input type="number" name="hoaHoc" id="hoaHoc" placeholder="Nhập điểm Hóa Học">
+<label for="sinhHoc">Nhập điểm Sinh Học</label>
+<input type="number" name="sinhHoc" id="sinhHoc" placeholder="Nhập điểm Sinh Học">
+<button id="tinhDiemBtn">Tính điểm trung bình</button>
+<p id="result"></p>
+<label for="celcius">Nhập độ C</label>
+<input type="number" name="celsius" id="celcius" placeholder="Nhập độ C">
+<button id="convertBtn">Chuyển đổi</button>
+<p id="resultConvert"></p>
+<label for="radius">Nhập bán kính</label>
+<input type="number" name="radius" id="radius" placeholder="Nhập bán kính">
+<button id="tinhDienTichVaChuViBtn">Tính diện tích và chu vi</button>
+<p id="resultDienTich"></p>
+<p id="resultChuVi"></p>
+<script>
+    document.getElementById('tinhDiemBtn').addEventListener('click', function() {
+        var vatLy = parseFloat(document.getElementById('vatLy').value);
+        var hoaHoc = parseFloat(document.getElementById('hoaHoc').value);
+        var sinhHoc = parseFloat(document.getElementById('sinhHoc').value);
+        var result = (vatLy + hoaHoc + sinhHoc) / 3;
+        document.getElementById('result').innerHTML = 'Điểm trung bình là: ' + result;
+    });
+    document.getElementById('convertBtn').addEventListener('click', function() {
+        var celcius = parseFloat(document.getElementById('celcius').value);
+        var result = (celcius * 9 / 5) + 32;
+        document.getElementById('resultConvert').innerHTML = 'Độ F là: ' + result;
+    });
+    document.getElementById('tinhDienTichVaChuViBtn').addEventListener('click', function() {
+        var radius = parseFloat(document.getElementById('radius').value);
+        var dienTich = radius * radius * 3.14;
+        var chuVi = 2 * radius * 3.14;
+        document.getElementById('resultDienTich').innerHTML = 'Diện tích hình tròn là: ' + dienTich;
+        document.getElementById('resultChuVi').innerHTML = 'Chu vi hình tròn là: ' + chuVi;
+    });
+</script>
+</body>
+</html>
