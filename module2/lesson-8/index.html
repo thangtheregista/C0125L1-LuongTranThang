@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let weight = +prompt('Enter your weight in kg');
+    // if (weight > 65) {
+    //     alert('XL');
+    // } else if (weight > 55) {
+    //     alert('L');
+    // } else if (weight > 45) {
+    //     alert('M');
+    // } else {
+    //     alert('S');
+    // }
+    switch (true) {
+        case weight > 65:
+            alert('XL');
+            break;
+        case weight > 55:
+            alert('L');
+            break;
+        case weight >= 45:
+            alert('M');
+            break;
+        case weight >= 40:
+            alert('S');
+            break;
+    }
+</script>
+</body>
+</html>

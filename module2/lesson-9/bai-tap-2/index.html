@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" name="month" id="month" placeholder="Nhập tháng">
+<button id="calculateToDays">Tính số ngày</button>
+<p id="resultToDays"></p>
+<script>
+    document.getElementById('calculateToDays').addEventListener('click', function () {
+        let month = document.getElementById('month').value;
+        let result = 0;
+        if (month < 1 || month > 12 || Number.isInteger(+month) === false) {
+            result = 'Tháng không hợp lệ';
+            alert(result);
+        } else {
+            switch (+month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    result = 31;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    result = 30;
+                    break;
+                case 2:
+                    result = '28 hoặc 29';
+                    break;
+            }
+            document.getElementById('resultToDays').innerText = `Tháng ${month} có ${result} ngày`;
+        }
+
+    });
+</script>
+</body>
+</html>
