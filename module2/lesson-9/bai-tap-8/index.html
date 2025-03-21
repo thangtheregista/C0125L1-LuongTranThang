@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function toFarenheit() {
+        let celsius = parseInt(prompt('Enter temperature in Celsius: '));
+        let farenheit = celsius * 9 / 5 + 32;
+        alert(`${celsius}°C is equal to ${farenheit}°F`);
+    }
+
+    function toFeet() {
+        let meter = parseInt(prompt('Enter length in meter: '));
+        let feet = meter * 3.2808;
+        alert(`${meter}m is equal to ${feet}ft`);
+    }
+
+    function squareArea() {
+        let side = parseInt(prompt('Enter side length of the square: '));
+        let area = side * side;
+        alert(`The area of the square is ${area}`);
+    }
+
+    function rectangleArea() {
+        let length = parseInt(prompt('Enter length of the rectangle: '));
+        let width = parseInt(prompt('Enter width of the rectangle: '));
+        let area = length * width;
+        alert(`The area of the rectangle is ${area}`);
+    }
+    function rightTriangle() {
+        let side1 = parseInt(prompt('Enter side 1 of the right triangle: '));
+        let side2 = parseInt(prompt('Enter side 2 of the right triangle: '));
+        let area = side1 * side2 / 2;
+    }
+    function linearEquation() {
+        let a = parseInt(prompt('Enter a: '));
+        let b = parseInt(prompt('Enter b: '));
+        if (a === 0) {
+            if (b === 0) {
+                alert('Phương trình có vô số nghiệm');
+            } else {
+                alert('Phương trình vô nghiệm');
+            }
+        } else {
+            let x = -b / a;
+            alert(`Nghiệm của phương trình là: ${x}`);
+        }
+    }
+    function quadraticEquation() {
+        let a = parseInt(prompt('Enter a: '));
+        let b = parseInt(prompt('Enter b: '));
+        let c = parseInt(prompt('Enter c: '));
+        let delta = b * b - 4 * a * c;
+        if (delta < 0) {
+            alert('Phương trình vô nghiệm');
+        } else if (delta === 0) {
+            let x = -b / (2 * a);
+            alert(`Phương trình có nghiệm kép: ${x}`);
+        } else {
+            let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            alert(`Phương trình có 2 nghiệm phân biệt: ${x1} và ${x2}`);
+        }
+    }
+    function isAgeValid() {
+        let age = parseInt(prompt('Enter your age: '));
+        if (age > 0 && age < 120) {
+            alert('Tuổi hợp lệ');
+        } else {
+            alert('Tuổi không hợp lệ');
+        }}
+    function isTriangle() {
+        let side1 = parseInt(prompt('Enter side 1 of the triangle: '));
+        let side2 = parseInt(prompt('Enter side 2 of the triangle: '));
+        let side3 = parseInt(prompt('Enter side 3 of the triangle: '));
+        if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1) {
+            alert('Đây là tam giác');
+        } else {
+            alert('Đây không phải tam giác');
+        }
+    }
+    function electricBill() {
+        let electricNumber = parseFloat(prompt('Enter the number of electric: '));
+        let priceQuota1 = 1893;
+        let priceQuota2 = 1956;
+        let priceQuota3 = 2271;
+        let priceQuota4 = 2860;
+        let priceQuota5 = 3197;
+        let priceQuota6 = 3302;
+        let bill = 0;
+        if (electricNumber <= 50) {
+            bill = electricNumber * priceQuota1;
+        } else if (electricNumber <= 100) {
+            bill = 50 * priceQuota1 + (electricNumber - 50) * priceQuota2;
+        } else if (electricNumber <= 200) {
+            bill = 50 * priceQuota1 + 50 * priceQuota2 + (electricNumber - 100) * priceQuota3;
+        } else if (electricNumber <= 300) {
+            bill = 50 * priceQuota1 + 50 * priceQuota2 + 100 * priceQuota3 + (electricNumber - 200) * priceQuota4;
+        } else if (electricNumber <= 400) {
+            bill = 50 * priceQuota1 + 50 * priceQuota2 + 100 * priceQuota3 + 100 * priceQuota4 + (electricNumber - 300) * priceQuota5;
+        } else {
+            bill = 50 * priceQuota1 + 50 * priceQuota2 + 100 * priceQuota3 + 100 * priceQuota4 + 100 * priceQuota5 + (electricNumber - 400) * priceQuota6;
+        }
+        alert(`Số tiền điện phải trả là: ${bill}`);
+    }
+</script>
+</body>
+</html>

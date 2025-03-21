@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isDivisible() {
+        let firstNumber = parseInt(prompt('Enter first number: '));
+        let secondNumber = parseInt(prompt('Enter second number: '));
+        let isDivisible = firstNumber % secondNumber === 0;
+        if (isDivisible) {
+            alert(`${firstNumber} is divisible by ${secondNumber}`);
+        } else {
+            alert(`${firstNumber} is not divisible by ${secondNumber}`);
+        }
+    }
+    function isEligible() {
+        let age = parseInt(prompt('Nhap tuoi cua ban: '));
+        let isEligibleAge = age >= 15;
+        if (isEligibleAge) {
+            alert('Bạn đủ điều kiện vào lớp 10');
+        } else {
+            alert('Ban chua du tuoi vao lop 10');
+        }
+    }
+    function compare() {
+        let integer = parseInt(prompt('Nhap so nguyen: '));
+        if (integer > 0) {
+            alert('Lớn hơn 0');
+        } else if (integer < 0) {
+            alert('Nhỏ hơn 0');
+        } else {
+            alert('Bằng 0');
+        }
+    }
+    function max() {
+        let firstNumber = parseInt(prompt('Enter first number: '));
+        let secondNumber = parseInt(prompt('Enter second number: '));
+        let thirdNumber = parseInt(prompt('Enter third number: '));
+        if (firstNumber > secondNumber) {
+            if (firstNumber > thirdNumber) {
+                alert(`${firstNumber} is the largest number`);
+            } else {
+                alert(`${thirdNumber} is the largest number`);
+            }
+        } else {
+            if (secondNumber > thirdNumber) {
+                alert(`${secondNumber} is the largest number`);
+            } else {
+                alert(`${thirdNumber} is the largest number`);
+            }
+        }
+    }
+    function ranking() {
+        let testScore = parseInt(prompt('Điểm kiểm tra hệ số 1: '));
+        let midTermScore = parseInt(prompt('Điểm kiểm tra hệ số 2: '));
+        let finalScore = parseInt(prompt('Điểm kiểm tra hệ số 3: '));
+        let averageScore = (testScore + midTermScore*2 + finalScore*3) / 6;
+        if (averageScore >= 8.5) {
+            alert('Học sinh giỏi');
+        } else if (averageScore >= 6.5) {
+            alert('Học sinh khá');
+        } else if (averageScore >= 5) {
+            alert('Học sinh trung bình');
+        } else {
+            alert('Học sinh yếu');
+        }
+    }
+    function commission () {
+        let sales = parseInt(prompt('Enter sales: '));
+        let commission = 0;
+        if (sales > 1000) {
+            commission = sales * 0.1;
+        } else if (sales > 500) {
+            commission = sales * 0.05;
+        } else {
+            commission = sales * 0.02;
+        }
+        alert(`Commission: ${commission}`);
+    }
+    function phoneBill () {
+        let minutes = parseInt(prompt('Enter minutes: '));
+        let bill = 50000;
+        if (minutes > 200) {
+            bill += (minutes - 200) * 1200;
+        }
+        alert(`Phone bill: ${bill}`);
+    }
+</script>
+</body>
+</html>
