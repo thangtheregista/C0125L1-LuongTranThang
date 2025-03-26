@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPrime(n) {
+        if (n < 2) {
+            return false;
+        }
+        if (n === 2 || n === 3) {
+            return true;
+        }
+        if (n % 2 === 0) {
+            return false;
+        }
+        for (let i = 3; i <= Math.sqrt(n); i += 2) {
+            if (n % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    function first20Integer() {
+        let number = parseInt(prompt("Nhập số nguyên dương"));
+        let count = 0;
+        let n = 2;
+        while (count < number) {
+            if (isPrime(n)) {
+                console.log(n);
+                count++;
+            }
+            n++;
+        }
+    }
+</script>
+</body>
+</html>

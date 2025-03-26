@@ -110,7 +110,7 @@
         let userNum = parseInt(prompt("Nhập số của bạn"));
         if (userNum === randomNum) {
             alert("Chúc mừng bạn đã đoán đúng");
-        } else {
+        }
             while (userNum !== randomNum) {
                 if (userNum > randomNum) {
                     userNum = parseInt(prompt("Số của bạn lớn hơn"));
@@ -126,7 +126,7 @@
                     }
                 }
             }
-        }
+
     }
     document.getElementById("choi").addEventListener("click", play);
 </script>
