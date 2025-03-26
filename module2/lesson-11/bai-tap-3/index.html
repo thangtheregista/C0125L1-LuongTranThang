@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="choi">
+    Chơi
+</button>
+<script>
+    function count() {
+        for (let i = 1; i <= 100; i++) {
+            console.log(i);
+            if (i === 99) {
+                alert("Đã hoàn thành")
+            }
+        }
+    }
+
+    function checkTemperature() {
+        let temperature = parseInt(prompt("Nhập nhiệt độ"));
+        const MIN_TEMPERATURE = 20;
+        const MAX_TEMPERATURE = 100;
+        while (temperature < MIN_TEMPERATURE) {
+            temperature = parseInt(prompt("Hãy tăng nhiệt độ"));
+        }
+        while (temperature > MAX_TEMPERATURE) {
+            temperature = parseInt(prompt("Hãy giảm nhiệt độ"));
+        }
+    }
+
+    function fibonacci() {
+        const number = 20;
+        let n1 = 0;
+        let n2 = 1;
+        let sum;
+        for (let i = 1; i <= number; i++) {
+            console.log(n1);
+            sum = n1 + n2;
+            n1 = n2;
+            n2 = sum;
+        }
+    }
+
+    function fibonacciDividedByNumber() {
+        let n1 = 0;
+        let n2 = 1;
+        let number = 5;
+        let sum;
+
+        while (true) {
+            sum = n1 + n2;
+            if (sum % number === 0) {
+                console.log(sum);
+                break;
+            }
+            n1 = n2;
+            n2 = sum;
+        }
+
+    }
+
+    function fibonacciSum() {
+        const number = 20;
+        let n1 = 0;
+        let n2 = 1;
+        let sum = 0;
+        for (let i = 1; i <= number; i++) {
+            sum = n1 + n2;
+            n1 = n2;
+            n2 = sum;
+        }
+        console.log(sum);
+    }
+
+    function sumOfDividableBy7() {
+        let dividedByNumber = 7;
+        let startNumber = 1;
+        let sum = 0;
+        let count = 0;
+        do {
+            if (startNumber % dividedByNumber === 0) {
+                sum += startNumber;
+                count++;
+            }
+            startNumber++;
+        } while (count < 30);
+        console.log(sum);
+    }
+
+    function fizzBuzz() {
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 === 0 && i % 5 === 0) {
+                console.log("FizzBuzz");
+            } else if (i % 3 === 0) {
+                console.log("Fizz");
+            } else if (i % 5 === 0) {
+                console.log("Buzz");
+            } else {
+                console.log(i);
+            }
+        }
+    }
+
+    function play() {
+        let min = parseInt(prompt("Nhập số nhỏ nhất"));
+        let max = parseInt(prompt("Nhập số lớn nhất"));
+        let randomNum = Math.floor(Math.random() * (max - min)) + min;
+        let userNum = parseInt(prompt("Nhập số của bạn"));
+        if (userNum === randomNum) {
+            alert("Chúc mừng bạn đã đoán đúng");
+        } else {
+            while (userNum !== randomNum) {
+                if (userNum > randomNum) {
+                    userNum = parseInt(prompt("Số của bạn lớn hơn"));
+                    if (userNum === randomNum) {
+                        alert("Chúc mừng bạn đã đoán đúng");
+                        break;
+                    }
+                } else {
+                    userNum = parseInt(prompt("Số của bạn nhỏ hơn"));
+                    if (userNum === randomNum) {
+                        alert("Chúc mừng bạn đã đoán đúng");
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    document.getElementById("choi").addEventListener("click", play);
+</script>
+</body>
+</html>
