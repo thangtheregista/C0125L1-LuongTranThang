@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sumOfArray(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+    function evenNumbers(arr) {
+        let evenNumbers = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                evenNumbers.push(arr[i]);
+            }
+        }
+        return evenNumbers;
+    }
+</script>
+</body>
+</html>
