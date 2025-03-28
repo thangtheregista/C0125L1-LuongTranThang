@@ -23,9 +23,10 @@
         return evenNumbers;
     }
     function printArray() {
-        do {
-            let n = parseInt(prompt(`Enter the number of elements in the array that is greater than 4`));
-        } while (n < 5);
+        let n = parseInt(prompt("Enter the number of elements in the array"));
+        while (n < 5) {
+            n = parseInt(prompt("Please enter a integer that is greater than 5"));
+        }
         let arr = [];
         for (let i = 0; i < n; i++) {
             arr.push(parseInt(prompt(`Enter element `)));
