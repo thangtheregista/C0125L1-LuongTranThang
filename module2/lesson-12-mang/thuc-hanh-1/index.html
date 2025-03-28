@@ -44,6 +44,17 @@
         }
         return min;
     }
+    function findInArray(arr) {
+        let number = parseInt(prompt("Enter a number"));
+        let index = "Not found";
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === number) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
 </script>
 </body>
 </html>
