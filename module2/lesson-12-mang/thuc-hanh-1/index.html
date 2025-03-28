@@ -22,6 +22,20 @@
         }
         return evenNumbers;
     }
+    function printArray() {
+        let n = parseInt(prompt("Enter the number of elements in the array"));
+        if (n < 5) {
+            alert("Invalid number of elements");
+            return;
+        }
+        let arr = [];
+        for (let i = 0; i < n; i++) {
+            arr.push(parseInt(prompt(`Enter element `)));
+        }
+        for (let i = 0; i < arr.length; i++) {
+            console.log(`${arr[i]} `);
+        }
+    }
 </script>
 </body>
 </html>
