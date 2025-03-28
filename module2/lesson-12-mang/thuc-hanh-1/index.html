@@ -24,9 +24,8 @@
     }
     function printArray() {
         let n = parseInt(prompt("Enter the number of elements in the array"));
-        if (n < 5) {
-            alert("Invalid number of elements");
-            return;
+        while (n < 5) {
+            n = parseInt(prompt("Please enter a integer that is greater than 5"));
         }
         let arr = [];
         for (let i = 0; i < n; i++) {
