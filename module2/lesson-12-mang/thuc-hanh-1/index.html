@@ -55,6 +55,12 @@
         }
         return index;
     }
+    function reverseArray(arr) {
+        for (let i  = 0, j = arr.length - 1; i < j; i++, j--) {
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
 </script>
 </body>
 </html>
