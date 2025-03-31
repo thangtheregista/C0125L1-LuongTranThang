@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ Điển Anh - Việt</title>
+</head>
+<body>
+<h2>Từ Điển Anh - Việt</h2>
+<input type="text" id="search" placeholder="Nhập từ tiếng Anh...">
+<button onclick="translateWord()">Dịch</button>
+<p id="result"></p>
+
+<script>
+    const englishWords = ["hello", "world", "book", "computer", "apple"];
+    const vietnameseWords = ["xin chào", "thế giới", "sách", "máy tính", "táo"];
+
+    function translateWord() {
+        let input = document.getElementById("search").value.toLowerCase();
+        let index = englishWords.indexOf(input);
+        let result = document.getElementById("result");
+        console.log(index);
+        if (index !== -1) {
+            result.textContent = "Nghĩa tiếng Việt: " + vietnameseWords[index];
+        } else {
+            result.textContent = "Không tìm thấy";
+        }
+    }
+</script>
+</body>
+</html>

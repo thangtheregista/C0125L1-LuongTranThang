@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function arrayToString(arr) {
+        let str = "";
+        for (let i = 0; i < arr.length; i++) {
+            str += arr[i] + ",";
+        }
+        return str;
+    }
+    function dashBetweenEvenNumbers(string) {
+        let result = "";
+        for (let i = 0; i < string.length; i++) {
+            if (i < string.length - 1) {
+                if (parseInt(string[i]) % 2 === 0 && parseInt(string[i + 1]) % 2 === 0) {
+                    result += string[i] + "-";
+                } else {
+                    result += string[i];
+                }
+            } else {
+                result += string[i];
+            }
+        }
+        return result;
+    }
+    function reverseUppercase(string) {
+        let result = "";
+        for (let i = 0; i < string.length; i++) {
+            if (string[i] === string[i].toUpperCase()) {
+                result += string[i].toLowerCase();
+            } else {
+                result += string[i].toUpperCase();
+            }
+        }
+        return result;
+    }
+</script>
+</body>
+</html>
