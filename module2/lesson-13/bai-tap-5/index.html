@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function numbersLargerThanTen() {
+        let arr = [];
+        let count = 0;
+        let length = 10;
+        for (let i = 0; i < length; i++) {
+            let number = parseInt(prompt("Nhập số thứ " + (i + 1)));
+            arr.push(number);
+            if (number > 10) {
+                count++;
+            }
+        }
+        document.write("Có " + count + " số lớn hơn 10 trong mảng " + arr);
+    }
+    function largestNumber() {
+        let arr = [];
+        let length = 10;
+        let largest = arr[0];
+        for (let i = 0; i < 10; i++) {
+            let number = parseInt(prompt("Nhập số thứ " + (i + 1)));
+            while (arr.indexOf(number) !== -1) {
+                number = parseInt(prompt("Số đã tồn tại, nhập lại số thứ " + (i + 1)));
+            }
+            arr.push(number);
+        }
+        for (let i = 1; i < length; i++) {
+            if (arr[i] > largest) {
+                largest = arr[i];
+            }
+        }
+        document.write("Số lớn nhất trong mảng " + arr + " là " + largest);
+    }
+    function average(arr) {
+        let largest = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] > largest) {
+                largest = arr[i];
+            }
+        }
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return [largest, sum / arr.length];
+    }
+    function reverseArray(arr) {
+        for (let i  = 0, j = arr.length - 1; i < j; i++, j--) {
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+    function countNegativeNumbers(string) {
+        let count = 0;
+        for (let i = 0; i < string.length; i++) {
+            if (string[i] === "-") {
+                if(!isNaN(string[i + 1])) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+    function numberInTheArray () {
+        let arr = [];
+        let length = 10;
+        for (let i = 0; i < length; i++) {
+            let number = parseInt(prompt("Nhập số thứ " + (i + 1)));
+            arr.push(number);
+        }
+        let number = parseInt(prompt("Nhập số cần kiểm tra"));
+        if (arr.indexOf(number) !== -1) {
+            document.write(number + " is in the array");
+        } else {
+            document.write(number + " is not in the array");
+        }
+    }
+    function removeNumber() {
+        let arr = [];
+        let length = 10;
+        for (let i = 0; i < length; i++) {
+            let number = parseInt(prompt("Nhập số thứ " + (i + 1)));
+            arr.push(number);
+        }
+        let number = parseInt(prompt("Nhập số cần xóa"));
+        let index = arr.indexOf(number);
+        if (index !== -1) {
+            arr.splice(index, 1);
+            arr.push(0);
+            document.write("Mảng sau khi xóa " + number + " là " + arr);
+        } else {
+            document.write(number + " không tồn tại trong mảng");
+        }
+    }
+    function desendingOrder() {
+        let arr = [];
+        let length = 10;
+        for (let i = 0; i < length; i++) {
+            let number = parseInt(prompt("Nhập số thứ " + (i + 1)));
+            arr.push(number);
+        }
+        arr.sort(function(a, b) {
+            return b - a;
+        });
+        document.write("Mảng giảm dần là " + arr);
+    }
+</script>
+</body>
+</html>
