@@ -21,7 +21,7 @@
             for (let j = 0; j < matrix[i].length; j++) {
                 sum += matrix[i][j];
             }
-            document.write("Sum of row " + (i + 1) + " is " + sum + "<br>");
+            console.log("Sum of row " + (i + 1) + " is " + sum);
             sum = 0;
         }
     }
@@ -31,7 +31,7 @@
             for (let j = 0; j < matrix.length; j++) {
                 sum += matrix[j][i];
             }
-            document.write("Sum of column " + (i + 1) + " is " + sum + "<br>");
+            console.log("Sum of column " + (i + 1) + " is " + sum);
             sum = 0;
         }
     }
