@@ -44,8 +44,9 @@
     }
     function secondaryDiagonalSum(matrix) {
         let sum = 0;
+        let index = matrix.length - 1;
         for (let i = 0; i < matrix.length; i++) {
-            sum += matrix[i][matrix.length - 1 - i];
+            sum += matrix[i][index - i];
         }
         console.log("Sum of the secondary diagonal is " + sum);
     }
