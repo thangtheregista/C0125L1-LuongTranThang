@@ -15,6 +15,26 @@
         }
         return sum;
     }
+    function rowSum(matrix) {
+        let sum = 0;
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[i].length; j++) {
+                sum += matrix[i][j];
+            }
+            document.write("Sum of row " + (i + 1) + " is " + sum + "<br>");
+            sum = 0;
+        }
+    }
+    function columnSum(matrix) {
+        let sum = 0;
+        for (let i = 0; i < matrix[0].length; i++) {
+            for (let j = 0; j < matrix.length; j++) {
+                sum += matrix[j][i];
+            }
+            document.write("Sum of column " + (i + 1) + " is " + sum + "<br>");
+            sum = 0;
+        }
+    }
 </script>
 </body>
 </html>
