@@ -6,12 +6,17 @@
 </head>
 <body>
 <script>
-    function sum(a,b,c) {
-        let sum = 0;
-        for (let i = 0; i < arguments.length; i++) {
-            sum += arguments[i];
+    function isPrimeNumber() {
+        let number = parseInt(prompt('Enter a number'));
+        if (number < 2) {
+            return false;
         }
-        return sum;
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                return false;
+            }
+        }
+        return true;
     }
 </script>
 </body>
