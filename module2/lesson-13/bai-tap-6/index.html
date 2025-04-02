@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function printMatrix(matrix) {
+        for (let i = 0; i < matrix.length; i++) {
+            let row = '';
+            for (let j = 0; j < matrix[i].length; j++) {
+                row += matrix[i][j] + ' ';
+            }
+            console.log(row);
+        }
+    }
+    function reverseArray(array) {
+        return array.reverse();
+    }
+    function countNumberInArray(array) {
+        let count = 0;
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < array.length; j++) {
+                if (array[j] === i) {
+                    count++;
+                }
+            }
+            console.log(i + ' appears ' + count + ' times');
+            count = 0;
+        }
+    }
+    function countWordsInString(string) {
+        let words = string.trim().split(' ');
+        let count = words.length;
+        console.log('There are ' + count + ' words in the string');
+    }
+</script>
+</body>
+</html>
