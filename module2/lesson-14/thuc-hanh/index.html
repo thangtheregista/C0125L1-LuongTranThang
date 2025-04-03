@@ -6,17 +6,23 @@
 </head>
 <body>
 <script>
-    function isPrimeNumber() {
-        let number = parseInt(prompt('Enter a number'));
-        if (number < 2) {
-            return "Not a prime number";
-        }
-        for (let i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i === 0) {
-                return "Not a prime number";
+    function checkMaxValue(array) {
+        let max = array[0];
+        for (let i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
             }
         }
-        return "Prime number";
+        return max;
+    }
+    function printMaxValue() {
+        let n = parseInt(prompt('Enter the number of elements in the array'));
+        let array = [];
+        for (let i = 0; i < n; i++) {
+            array.push(parseInt(prompt('Enter element ' + (i + 1))));
+        }
+        let max = checkMaxValue(array);
+        document.write('The max value in the array is ' + max);
     }
 </script>
 </body>

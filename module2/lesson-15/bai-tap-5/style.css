@@ -1,0 +1,96 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Khung chính */
+.product {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+
+/* Tiêu đề */
+.product__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Ô nhập liệu và nút "Add" */
+.product__form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.product__input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.product__button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Nút Add */
+.product__button--add {
+    background: green;
+    color: white;
+}
+
+/* Số lượng sản phẩm */
+.product__count {
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Danh sách sản phẩm */
+.product__list {
+    border-top: 1px solid #ddd;
+}
+
+/* Mỗi sản phẩm */
+.product__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Tô màu xen kẽ */
+.product__item:nth-child(odd) {
+    background: #f8f9fa;
+}
+
+/* Nhóm nút chỉnh sửa, xoá */
+.product__buttons {
+    display: flex;
+    gap: 5px;
+}
+
+/* Nút Edit */
+.product__button--edit {
+    background: #28a745;
+    color: white;
+}
+
+/* Nút Delete */
+.product__button--delete {
+    background: #dc3545;
+    color: white;
+}
