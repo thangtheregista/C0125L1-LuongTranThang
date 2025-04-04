@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="alertMessage">Hello</button>
+<br>
+<input type="number" name="number" id="number" >
+<button id="plus">Plus</button>
+<br>
+<input type="number" name="number1" id="number1" >
+<input type="number" name="number2" id="number2" >
+<button id="checkSum">Check Sum</button>
+<br>
+<p class="result"></p>
+<br>
+<button id="findConstellation">Find Constellation</button>
+<br>
+<p class="result2"></p>
+<script>
+function alertMessage() {
+    alert("Xin Chào");
+}
+function plus(n) {
+    let number = +n;
+    alert(n+1);
+}
+function checkSum(n1, n2) {
+    if (n1>n2) {
+        alert("n1 lớn hơn n2");
+    } else {
+        return n1 + n2;
+    }
+}
+function addNumbers() {
+    firstNum = 4;
+    secondNum = 8;
+    alert(result);
+    result = firstNum + secondNum;
+    alert(result);
+    return result;
+}
+result = 0;
+result = addNumbers();
+
+let starsName = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+let constellationsName = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+function findConstellation(starName) {
+    let index = starsName.indexOf(starName);
+    if (index !== -1) {
+        return constellationsName[index];
+    } else {
+        return 0;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    let alertButton = document.getElementById("alertMessage");
+    alertButton.addEventListener("click", function () {
+        alertMessage();
+    });
+
+    let plusButton = document.getElementById("plus");
+    plusButton.addEventListener("click", function () {
+        let number = document.getElementById("number").value;
+        plus(number);
+    });
+    let number1 = document.getElementById("number1");
+    let number2 = document.getElementById("number2");
+    let result = document.querySelector(".result");
+    let checkSumButton = document.getElementById("checkSum");
+    checkSumButton.addEventListener("click", function () {
+        let n1 = +number1.value;
+        let n2 = +number2.value;
+        let sum = checkSum(n1, n2);
+        if (sum) {
+            result.innerHTML = "Tổng là: " + sum;
+        }
+    });
+    let findConstellationButton = document.getElementById("findConstellation");
+    findConstellationButton.addEventListener("click", function () {
+        let starName = prompt("Nhập tên sao:");
+        let constellation = findConstellation(starName);
+        let result2 = document.querySelector(".result2");
+        if (constellation) {
+            result2.innerHTML = "Chòm sao của " + starName + " là: " + constellation;
+        } else {
+            result2.innerHTML = "Không tìm thấy chòm sao cho sao " + starName;
+        }
+    });
+})
+</script>
+</body>
+</html>

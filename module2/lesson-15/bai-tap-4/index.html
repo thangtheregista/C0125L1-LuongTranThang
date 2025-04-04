@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findSquare(n) {
+        return n * n;
+    }
+    findSquare(5);
+    function findAreaOfCircle(r) {
+        return Math.PI * r * r;
+    }
+    findAreaOfCircle(5);
+    function findPerimeterOfCircle(r) {
+        return 2 * Math.PI * r;
+    }
+    findPerimeterOfCircle(5);
+    function findFactorial(n) {
+        if (n === 0 || n === 1) {
+            return 1;
+        }
+        let result = 1;
+        for (let i = 2; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+    findFactorial(5);
+    function checkIfNumber(n) {
+        if (isNaN(n)) {
+            return false;
+        }
+        return true;
+    }
+    function findSmallestInteger(n1, n2, n3) {
+        let smallest = n1;
+        if (n2 < smallest) {
+            smallest = n2;
+        }
+        if (n3 < smallest) {
+            smallest = n3;
+        }
+        return smallest;
+    }
+    function checkIfPositiveInteger(n) {
+        if (n > 0 && Number.isInteger(n)) {
+            return true;
+        }
+        return false;
+    }
+    function swapNumbers(a, b) {
+        let temp = a;
+        a = b;
+        b = temp;
+        return [a, b];
+    }
+    function reverseArray(arr) {
+        let temp;
+        for (let i = 0; i < arr.length / 2; i++) {
+            temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
+    }
+    function checkCharacterInArray(arr, char) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === char) {
+                count++;
+            }
+        }
+        if (count) {
+            return count;
+        } else {
+            return -1;
+        }
+    }
+</script>
+</body>
+</html>
