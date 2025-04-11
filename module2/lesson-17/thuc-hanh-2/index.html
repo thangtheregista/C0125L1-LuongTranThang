@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Rat {
+        name; weight; speed; status;
+        constructor(name, weight, speed, status) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = status;
+        }
+        sound() {
+            return 'Chit chit';
+        }
+    }
+    class Cat {
+        name; weight; maxSpeed;
+        constructor(name, weight, maxSpeed) {
+            this.name = name;
+            this.weight = weight;
+            this.maxSpeed = maxSpeed;
+        }
+        sound() {
+            return 'Meo meo';
+        }
+        catchRat(rat) {
+            if (rat.length !== 1) {
+                return "Cat cannot catch rat";
+            } else if (this.maxSpeed > rat.speed) {
+                return "Caught rat";
+            } else {
+                return "Cat cannot catch rat";
+            }
+        }
+        eatRat (rat) {
+            if (this.catchRat(rat) === "Caught rat" && rat.status === "alive") {
+                this.weight += rat.weight;
+            }
+        }
+    }
+</script>
+</body>
+</html>

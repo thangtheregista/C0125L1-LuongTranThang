@@ -12,7 +12,7 @@
             this.weight = 10;
         }
         decrease() {
-            if (this.weight > 0) {
+            if (!this.isEmpty()) {
                 this.weight--;
             } else {
                 console.log('Apple is empty');
@@ -44,8 +44,8 @@
 
         }
         eat(apple) {
-            if (apple.weight) {
-                apple.weight--;
+            if (!apple.isEmpty()) {
+                apple.decrease();
                 this.weight++;
             } else {
                 console.log('Apple is empty');
