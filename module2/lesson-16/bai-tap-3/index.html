@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        pin;
+        draft;
+        inbox;
+        sent;
+
+        constructor() {
+            this.pin = 100;
+            this.draft = '';
+            this.inbox = [];
+            this.sent = [];
+        }
+
+        checkOnOrOff() {
+            if (this.pin > 0) {
+                return 'Mobile is on';
+            } else {
+                return 'Mobile is off';
+            }
+        }
+
+        turnOnOrOff() {
+            if (this.checkOnOrOff() === 'Mobile is on') {
+                return 'Mobile is off';
+            } else {
+                return 'Mobile is on';
+            }
+        }
+        charge() {
+            if (this.pin === 100) {
+                alert('Mobile is fully charged');
+            } else {
+                const charging = setInterval(() => {
+                    this.pin++;
+                    if (this.pin === 100) {
+                        clearInterval(charging);
+                        alert('Mobile is fully charged');
+                    }
+                }, 1000);
+            }
+        }
+        writeMessage(message) {
+            if (this.checkOnOrOff() === 'Mobile is on') {
+                this.draft = message;
+                this.pin --;
+            } else {
+                alert('Mobile is off');
+            }
+        }
+        sendMessage(mobile) {
+            if (this.checkOnOrOff() === 'Mobile is on') {
+                let draft = this.draft;
+                this.sent.push(draft);
+                mobile.inbox.push(draft);
+                this.draft = '';
+                this.pin --;
+            } else {
+                alert('Mobile is off');
+            }
+        }
+        watchInbox() {
+            if (this.checkOnOrOff() === 'Mobile is on') {
+                this.pin --;
+                return this.inbox;
+            } else {
+                alert('Mobile is off');
+            }
+        }
+        watchSent() {
+            if (this.checkOnOrOff() === 'Mobile is on') {
+                this.pin --;
+                return this.sent;
+            } else {
+                alert('Mobile is off');
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

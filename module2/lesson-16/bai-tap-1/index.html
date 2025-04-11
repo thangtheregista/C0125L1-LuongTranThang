@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<input type="range" name="width" id="width" min="0" max="100" value="50" >
+<input type="range" name="height" id="height" min="0" max="100" value="50" >
+<input type="range" name="x" id="x" min="0" max="100" value="10">
+<input type="range" name="y" id="y" min="0" max="100" value="10" >
+<button id="draw">Draw</button>
+<p class="areaResult"></p>
+<p class="perimeterResult"></p>
+<canvas>
+
+</canvas>
+<script>
+    class Rectangle {
+        x; y; width; height;
+        constructor( x, y, width, height) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+        }
+
+        getArea() {
+            return this.width * this.height;
+        }
+        getPerimeter() {
+            return (this.width + this.height) * 2;
+        }
+        draw() {
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+
+
+    let canvas = document.querySelector('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'blue';
+
+    document.getElementById('draw').onclick = function () {
+        let width = document.getElementById('width').value;
+        let height = document.getElementById('height').value;
+        let x = document.getElementById('x').value;
+        let y = document.getElementById('y').value;
+        let rectangle = new Rectangle(x, y, width, height);
+        let area = rectangle.getArea();
+        let perimeter = rectangle.getPerimeter();
+
+        document.querySelector('.areaResult').innerText = 'Area: ' + area;
+        document.querySelector('.perimeterResult').innerText = 'Perimeter: ' + perimeter;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        rectangle.draw();
+    }
+</script>
+</body>
+</html>
