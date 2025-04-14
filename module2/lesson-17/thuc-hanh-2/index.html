@@ -18,6 +18,8 @@
             return 'Chit chit';
         }
     }
+    const rat1 = new Rat('Rat1', 1, 10, 'alive');
+    const rat2 = new Rat('Rat2', 1, 5, 'alive');
     class Cat {
         name; weight; maxSpeed;
         constructor(name, weight, maxSpeed) {
@@ -29,7 +31,7 @@
             return 'Meo meo';
         }
         catchRat(rat) {
-            if (rat.length !== 1) {
+            if (arguments.length !== 1) {
                 return "Cat cannot catch rat";
             } else if (this.maxSpeed > rat.speed) {
                 return "Caught rat";
@@ -41,6 +43,12 @@
             if (this.catchRat(rat) === "Caught rat" && rat.status === "alive") {
                 this.weight += rat.weight;
             }
+        }
+    }
+    const cat1 = new Cat('Cat1', 5, 20);
+    function eat(a) {
+        if (arguments.length !==1) {
+            console.log("hello")
         }
     }
 </script>
