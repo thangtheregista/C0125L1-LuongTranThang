@@ -1,20 +1,31 @@
 const grid = document.querySelector(".grid")
+
 const scoreDisplay = document.querySelector("#score");
+
 const blockWidth = 100;
 const blockHeight = 20;
+
 const ballDiameter = 20;
-const boardWidth = 560;
-const boardHeight = 300;
+
+const boardWidth = 1660;
+const boardHeight = 900;
+
+const userWidth = 200;
+const userHeight = 20;
+
 let timerId;
 let xDirection = 1;
 let yDirection = 1;
 let score = 0;
 
-const userStart = [230, 10];
+const userStart = [(boardWidth-100)/2, 10];
 let currentPosition = userStart;
 
-const ballStart = [270, 30];
+const ballStart = [(boardWidth)/2-10, 30];
 let ballCurrentPosition = ballStart;
+
+
+
 //create block
 class Block {
     constructor(xAxis, yAxis) {
@@ -26,21 +37,32 @@ class Block {
 }
 //all the blocks
 const blocks = [
-    new Block(10, 270),
-    new Block(120, 270),
-    new Block(230, 270),
-    new Block(340, 270),
-    new Block(450, 270),
-    new Block(10, 240),
-    new Block(120, 240),
-    new Block(230, 240),
-    new Block(340, 240),
-    new Block(450, 240),
-    new Block(10, 210),
-    new Block(120, 210),
-    new Block(230, 210),
-    new Block(340, 210),
-    new Block(450, 210),
+    new Block(10, 870),
+    new Block(120, 870),
+    new Block(230, 870),
+    new Block(340, 870),
+    new Block(450, 870),
+    new Block(560, 870),
+    new Block(670, 870),
+    new Block(780, 870),
+    new Block(890, 870),
+    new Block(1000, 870),
+    new Block(1110, 870),
+    new Block(1220, 870),
+    new Block(1330, 870),
+    new Block(1440, 870),
+    new Block(1550, 870),
+
+    // new Block(10, 240),
+    // new Block(120, 240),
+    // new Block(230, 240),
+    // new Block(340, 240),
+    // new Block(450, 240),
+    // new Block(10, 210),
+    // new Block(120, 210),
+    // new Block(230, 210),
+    // new Block(340, 210),
+    // new Block(450, 210),
 ]
 
 //add block to grid
@@ -109,7 +131,7 @@ function moveBall() {
     checkForCollision();
 }
 
-timerId = setInterval(moveBall, 20);
+timerId = setInterval(moveBall, 5);
 
 //check for collision
 function checkForCollision() {
@@ -150,9 +172,9 @@ function checkForCollision() {
     //check for user collision
     if (
         (ballCurrentPosition[0] + ballDiameter) > currentPosition[0] &&
-        ballCurrentPosition[0] < currentPosition[0] + blockWidth &&
+        ballCurrentPosition[0] < currentPosition[0] + userWidth &&
         ballCurrentPosition[1] > currentPosition[1] &&
-        ballCurrentPosition[1] < currentPosition[1] + blockHeight
+        ballCurrentPosition[1] < currentPosition[1] + userHeight
     ) {
         changeDirection();
     }
@@ -183,3 +205,4 @@ function changeDirection() {
         return;
     }
 }
+console.log(blocks)

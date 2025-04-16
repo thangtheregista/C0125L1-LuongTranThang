@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bouncing Balls Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial Black', Gadget, sans-serif;
+      background-color: #0077b6;
+      background-image: radial-gradient(#006494 15%, transparent 16%), radial-gradient(#006494 15%, transparent 16%);
+      background-position: 0 0, 30px 30px;
+      background-size: 60px 60px;
+      height: 100vh;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 150px;
+      background-color: transparent;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sidebar h2 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .sidebar #score {
+      font-size: 20px;
+      color: #00ffff;
+      margin: 10px 0;
+    }
+
+    .sidebar .icon {
+      margin: 10px 0;
+      font-size: 24px;
+    }
+
+    .sidebar .boost {
+      margin-top: auto;
+      text-align: center;
+      background-color: #1e90ff;
+      padding: 10px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .boost span {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: red;
+      color: white;
+      font-size: 12px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .grid {
+      width: 1660px;
+      height: 900px;
+      background-color: #001d3d;
+      margin: 20px;
+      border-radius: 20px;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .block {
+      position: absolute;
+      width: 100px;
+      height: 20px;
+      background-color: blue;
+    }
+    .user {
+      position: absolute;
+      width: 200px;
+      height: 20px;
+      background-color: yellow;
+    }
+    .ball {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+<div class="sidebar">
+  <div>
+    <h2>Score</h2>
+    <div id="score">0</div>
+  </div>
+  <div>
+    <div class="icon">❓</div>
+    <div class="icon">⚙️</div>
+  </div>
+  <div class="boost">
+    <span>0</span>
+    <div>⚡<br>BOOST</div>
+  </div>
+</div>
+
+<div class="grid">
+  <!-- Empty game grid -->
+</div>
+<script src="script.js"></script>
+</body>
+</html>
