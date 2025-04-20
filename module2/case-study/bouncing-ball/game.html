@@ -70,6 +70,9 @@
       align-items: center;
       justify-content: center;
     }
+    .icon {
+      cursor: pointer;
+    }
 
     .grid {
       width: 1660px;
@@ -84,6 +87,49 @@
       align-items: center;
       justify-content: center;
     }
+    .pause-overlay,
+    .gameover-overlay,
+    .leaderboard-overlay,
+    .win-overlay{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 96px;
+      font-weight: bold;
+      border-radius: 20px;
+      z-index: 10;
+      flex-direction: column;
+    }
+    .gameover-overlay button,
+    .leaderboard-overlay button,
+    .win-overlay button{
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: #00b4d8;
+      color: white;
+      cursor: pointer;
+    }
+
+    .leaderboard-overlay ul {
+      list-style: none;
+      padding: 0;
+      font-size: 24px;
+    }
+
+    .leaderboard-overlay li {
+      margin: 5px 0;
+    }
+
     .block {
       position: absolute;
       width: 100px;
@@ -113,16 +159,29 @@
   </div>
   <div>
     <div class="icon">❓</div>
-    <div class="icon">⚙️</div>
+    <div class="icon" id="pauseButton">▐▐ </div>
   </div>
   <div class="boost">
-    <span>0</span>
-    <div>⚡<br>BOOST</div>
+<!--    <span>0</span>-->
+<!--    <div>⚡<br>BOOST</div>-->
   </div>
 </div>
 
 <div class="grid">
-  <!-- Empty game grid -->
+  <div class="pause-overlay" id="pauseOverlay">Game Paused</div>
+  <div class="gameover-overlay" id="gameOverOverlay">
+    <div>Game Over</div>
+    <button onclick="restartGame()">Restart</button>
+    <button onclick="showLeaderboard()">Leaderboard</button>
+  </div>
+  <div class="leaderboard-overlay" id="leaderboardOverlay">
+    <div>Leaderboard</div>
+    <ul id="leaderboardList"></ul>
+    <button onclick="restartGame()">Restart</button>
+  </div>
+  <div class="win-overlay" id="winOverlay">
+    <div>Stage Cleared!</div>
+  </div>
 </div>
 <script src="script.js"></script>
 </body>
