@@ -72,15 +72,54 @@
             color: white;
             cursor: pointer;
         }
-        .leaderboard-overlay ul {
-            list-style: none;
+        /*.leaderboard-overlay ul {*/
+        /*    list-style: none;*/
+        /*    padding: 0;*/
+        /*    font-size: 24px;*/
+        /*}*/
+
+        /*.leaderboard-overlay li {*/
+        /*    margin: 5px 0;*/
+        /*}*/
+        .leaderboard {
             padding: 0;
-            font-size: 24px;
+            margin: 0;
+            list-style: none;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 480px;
         }
 
-        .leaderboard-overlay li {
-            margin: 5px 0;
+        .leaderboard li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        .leaderboard li:last-child {
+            border-bottom: none;
+        }
+
+        .name {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .score {
+            font-weight: bold;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+
+        .top1 { background-color: gold; color: black; font-weight: bold; }
+        .top2 { background-color: silver; color: black; font-weight: bold; }
+        .top3 { background-color: #cd7f32; color: black; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -89,7 +128,7 @@
 <button class="button" onclick="showLeaderboard()">Leaderboard</button>
 <div class="leaderboard-overlay" id="leaderboardOverlay">
     <div>Leaderboard</div>
-    <ul id="leaderboardList"></ul>
+    <ul id="leaderboardList" class="leaderboard"></ul>
     <button onclick="closeLeaderboard()">Close</button>
 </div>
 <script>
@@ -104,7 +143,25 @@
 
         leaderboard.forEach((entry, index) => {
             const item = document.createElement("li");
-            item.textContent = `${index + 1}. ${entry.name} - ${entry.score}`;
+            // item.textContent = `${index + 1}. ${entry.name} - ${entry.score}`;
+            if (index === 0) {
+                item.classList.add("top1");
+            } else if (index === 1) {
+                item.classList.add("top2");
+            } else if (index === 2) {
+                item.classList.add("top3");
+            }
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'name';
+            nameSpan.textContent = entry.name;
+            nameSpan.title = entry.name; // Tooltip on hover
+
+            const scoreSpan = document.createElement('span');
+            scoreSpan.className = 'score';
+            scoreSpan.textContent = entry.score;
+
+            item.appendChild(nameSpan);
+            item.appendChild(scoreSpan);
             leaderboardList.appendChild(item);
         });
 

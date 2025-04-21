@@ -1,6 +1,7 @@
-const grid = document.querySelector(".grid")
+const grid = document.querySelector(".grid");
 
 const scoreDisplay = document.querySelector("#score");
+const ballSpeedDisplay = document.querySelector("#ballSpeed");
 
 const blockWidth = 100;
 const blockHeight = 20;
@@ -28,6 +29,12 @@ let ballSpeedMultiplier = 3;
 
 let gameOver = false;
 let stageCleared = false;
+let currentStage = 1;
+
+const paddleHitSound = new Audio('sounds/616495__empiremonkey__block1.wav');
+const wallHitSound = new Audio('sounds/161593__jorickhoofd__soft-hit-wooden-block-and-sandish-noise.wav');
+const blockHitSound1 = new Audio('sounds/219161__jagadamba__frogblock01.wav');
+const blockHitSound2 = new Audio('sounds/53387__dodgy-c__dodgy_c_wood_block.wav');
 //create block
 class Block {
     constructor(xAxis, yAxis) {
@@ -39,49 +46,49 @@ class Block {
 }
 //all the blocks
 const blocks = [
-    new Block(120, 870),
-    new Block(230, 870),
-    new Block(340, 870),
-    new Block(450, 870),
-    new Block(560, 870),
-    new Block(670, 870),
-    new Block(780, 870),
-    new Block(890, 870),
-    new Block(1000, 870),
-    new Block(1110, 870),
-    new Block(1220, 870),
-    new Block(1330, 870),
-    new Block(1440,870),
+    // new Block(120, 870),
+    // new Block(230, 870),
+    // new Block(340, 870),
+    // new Block(450, 870),
+    // new Block(560, 870),
+    // new Block(670, 870),
+    // new Block(780, 870),
+    // new Block(890, 870),
+    // new Block(1000, 870),
+    // new Block(1110, 870),
+    // new Block(1220, 870),
+    // new Block(1330, 870),
+    // new Block(1440,870),
+    //
+    // new Block(120, 840),
+    // new Block(230, 840),
+    // new Block(340, 840),
+    // new Block(450, 840),
+    // new Block(560, 840),
+    // new Block(670, 840),
+    // new Block(780, 840),
+    // new Block(890, 840),
+    // new Block(1000, 840),
+    // new Block(1110, 840),
+    // new Block(1220, 840),
+    // new Block(1330, 840),
+    // new Block(1440,840),
+    //
+    // new Block(120, 810),
+    // new Block(230, 810),
+    // new Block(340, 810),
+    // new Block(450, 810),
+    // new Block(560, 810),
+    // new Block(670, 810),
+    // new Block(780, 810),
+    // new Block(890, 810),
+    // new Block(1000, 810),
+    // new Block(1110, 810),
+    // new Block(1220, 810),
+    // new Block(1330, 810),
+    // new Block(1440,810),
 
-    new Block(120, 840),
-    new Block(230, 840),
-    new Block(340, 840),
-    new Block(450, 840),
-    new Block(560, 840),
-    new Block(670, 840),
-    new Block(780, 840),
-    new Block(890, 840),
-    new Block(1000, 840),
-    new Block(1110, 840),
-    new Block(1220, 840),
-    new Block(1330, 840),
-    new Block(1440,840),
-
-    new Block(120, 810),
-    new Block(230, 810),
-    new Block(340, 810),
-    new Block(450, 810),
-    new Block(560, 810),
-    new Block(670, 810),
-    new Block(780, 810),
-    new Block(890, 810),
-    new Block(1000, 810),
-    new Block(1110, 810),
-    new Block(1220, 810),
-    new Block(1330, 810),
-    new Block(1440,810),
-
-    // new Block(1550,870)
+    new Block(1550,870)
 ]
 
 //add block to grid
@@ -144,22 +151,41 @@ grid.appendChild(ball);
 
 //move ball
 function moveBall() {
-    if (score === 0) {
-        ballSpeedMultiplier=1;
-    } else if (score === 4) {
-        ballSpeedMultiplier=2;
-    } else if (score === 10) {
-        ballSpeedMultiplier=3;
-    } else if (score === 45) {
-        ballSpeedMultiplier=4
+    if (gameStarted) {
+        if (score === 0) {
+            ballSpeedMultiplier=1;
+        } else if (score === 4) {
+            ballSpeedMultiplier=1.5;
+        } else if (score === 10) {
+            ballSpeedMultiplier=2;
+        } else if (score === 24) {
+            ballSpeedMultiplier=2.5
+        } else if  (score === 35) {
+            ballSpeedMultiplier=3;
+        } else if (score === 45) {
+            ballSpeedMultiplier=3.5;
+        } else if (score === 60) {
+            ballSpeedMultiplier=4;
+        }
+        ballSpeedDisplay.innerHTML = ballSpeedMultiplier;
+        ballCurrentPosition[0] += xDirection*ballSpeedMultiplier;
+        ballCurrentPosition[1] += yDirection*ballSpeedMultiplier;
+        drawBall();
+        checkForCollision();
     }
-    ballCurrentPosition[0] += xDirection*ballSpeedMultiplier;
-    ballCurrentPosition[1] += yDirection*ballSpeedMultiplier;
-    drawBall();
-    checkForCollision();
+
 }
 
 timerId = setInterval(moveBall, 1);
+
+//play sound
+function playRandomBlockHitSound() {
+    const sounds = [blockHitSound1, blockHitSound2];
+    const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+
+    randomSound.currentTime = 0; // Restart if it's already playing
+    randomSound.play().catch(() => {}); // Catch in case autoplay fails
+}
 
 //check for collision
 function checkForCollision() {
@@ -171,6 +197,8 @@ function checkForCollision() {
             (ballCurrentPosition[1] + ballDiameter) >= blocks[i].bottomLeft[1] &&
             ballCurrentPosition[1] <= blocks[i].topLeft[1]
         ) {
+
+            playRandomBlockHitSound()
             const allBlocks = Array.from(document.querySelectorAll(".block"));
             allBlocks[i].classList.remove("block");
             blocks.splice(i, 1);
@@ -186,11 +214,16 @@ function checkForCollision() {
                 document.removeEventListener("keydown", moveUser);
                 grid.removeEventListener("mousemove", moveUserWithMouse);
                 document.getElementById('winOverlay').style.display = 'flex';
+                const winMessage = document.getElementById('winMessage');
+                winMessage.innerText = `You cleared Stage ${currentStage}
+                Get ready for Stage ${currentStage + 1}!`;
                 setTimeout(()=> {
                     document.getElementById('winOverlay').style.display = 'none';
-                    startStageTwo();
+                    currentStage++;
+                    // startStageTwo();
+                    updateStageUI();
                     stageCleared = false;
-                }, 2000);
+                }, 3000);
             }
         }
     }
@@ -274,6 +307,8 @@ function checkForCollision() {
         ballCurrentPosition[0] <= 0 ||
         ballCurrentPosition[1] <= 0
     ) {
+        wallHitSound.curentTime = 0; // Rewind to start
+        wallHitSound.play();
        changeDirection();
     }
 
@@ -284,6 +319,8 @@ function checkForCollision() {
         ballCurrentPosition[1] > currentPosition[1] &&
         ballCurrentPosition[1] < currentPosition[1] + userHeight
     ) {
+        paddleHitSound.currentTime = 0; // Rewind to start
+        paddleHitSound.play();
         changeDirection();
     }
 
@@ -346,14 +383,16 @@ pauseButton.addEventListener('click', togglePause);
 
 //move User with mouse
 function moveUserWithMouse(e) {
-    const gridRect = grid.getBoundingClientRect();
-    const mouseX = e.clientX - gridRect.left;
-    const newUserX = mouseX - userWidth / 2;
+    if (gameStarted) {
+        const gridRect = grid.getBoundingClientRect();
+        const mouseX = e.clientX - gridRect.left;
+        const newUserX = mouseX - userWidth / 2;
 
-    // Clamp the paddle inside the board
-    if (newUserX >= 0 && newUserX <= boardWidth - userWidth) {
-        currentPosition[0] = newUserX;
-        drawUser();
+        // Clamp the paddle inside the board
+        if (newUserX >= 0 && newUserX <= boardWidth - userWidth) {
+            currentPosition[0] = newUserX;
+            drawUser();
+        }
     }
 }
 grid.addEventListener("mousemove", moveUserWithMouse);
@@ -372,7 +411,25 @@ function showLeaderboard() {
 
     leaderboard.forEach((entry, index) => {
         const item = document.createElement("li");
-        item.textContent = `${index + 1}. ${entry.name} - ${entry.score}`;
+        // item.textContent = `${index + 1}. ${entry.name} - ${entry.score}`;
+        if (index === 0) {
+            item.classList.add("top1");
+        } else if (index === 1) {
+            item.classList.add("top2");
+        } else if (index === 2) {
+            item.classList.add("top3");
+        }
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'name';
+        nameSpan.textContent = entry.name;
+        nameSpan.title = entry.name; // Tooltip on hover
+
+        const scoreSpan = document.createElement('span');
+        scoreSpan.className = 'score';
+        scoreSpan.textContent = entry.score;
+
+        item.appendChild(nameSpan);
+        item.appendChild(scoreSpan);
         leaderboardList.appendChild(item);
     });
 
@@ -383,13 +440,27 @@ function showLeaderboard() {
 function saveScore(name) {
     // Get existing leaderboard or start new
     const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
-
+    const minLeaderboardSize = 10;
     // Add new score
-    leaderboard.push({ name: name, score: score });
+    if (leaderboard.length < minLeaderboardSize) {
+        leaderboard.push({ name: name, score: score,timestamp: Date.now() });
+    } else {
+        const lowestScore = leaderboard[leaderboard.length - 1].score;
+        if (score > lowestScore) {
+            leaderboard.pop(); // remove lowest
+            leaderboard.push({ name:name, score:score, timestamp: Date.now() });
+        } else {
+            return; // Don't update if score is too low
+        }
+    }
 
     // Sort scores descending
-    leaderboard.sort((a, b) => b.score - a.score);
-
+    leaderboard.sort((a, b) => {
+        if (b.score === a.score) {
+            return a.timestamp - b.timestamp; // Earlier timestamp comes first
+        }
+        return b.score - a.score;
+    });
     // Optionally limit to top 10 scores
     const topScores = leaderboard.slice(0, 10);
 
@@ -399,7 +470,84 @@ function saveScore(name) {
     // Display leaderboard
     showLeaderboard();
 }
+//Update Stage UI
+function updateStageUI() {
+    document.getElementById('stage').innerText = currentStage;
+}
 
+//play sound fix
+// Preload your game sounds
+const gameSounds = [blockHitSound1, blockHitSound2];
+
+let gameStarted = false;
+let audioUnlocked = false;
+
+// Listen for SPACE to start game
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space' && !gameStarted) {
+
+        if (!audioUnlocked) {
+            unlockAudio();
+        }
+
+        document.getElementById('startText').style.display = 'none';
+        startCountdown();
+    }
+});
+
+// Unlock audio by playing and pausing each sound
+function unlockAudio() {
+    audioUnlocked = true;
+    gameSounds.forEach(sound => {
+        sound.play().then(() => {
+            sound.pause();
+            sound.currentTime = 0;
+        }).catch(() => {
+            // Some browsers still block this, but this attempt unlocks most
+        });
+    });
+}
+
+// Countdown before game starts
+function startCountdown() {
+    const countdownEl = document.getElementById('countdown');
+    countdownEl.style.display = 'block';
+
+    let count = 3;
+    countdownEl.textContent = count;
+
+    const countdownInterval = setInterval(() => {
+        count--;
+        if (count > 0) {
+            countdownEl.textContent = count;
+        } else {
+            clearInterval(countdownInterval);
+            countdownEl.textContent = "Go!";
+            setTimeout(() => {
+                document.getElementById('overlay').style.display = 'none';
+                startGame();
+            }, 800);
+        }
+    }, 1000);
+}
+
+// Game logic starts here
+function startGame() {
+    gameStarted = true;
+
+    // Your game loop, ball launch, etc.
+}
+
+// let userHasInteracted = false;
+//
+// document.addEventListener('mousemove', () => {
+//     if (!userHasInteracted) {
+//         userHasInteracted = true;
+//         // Preload sound
+//         paddleHitSound.play().catch(() => {});  // Will probably still fail, but helps "prime" it
+//         paddleHitSound.pause();
+//     }
+// });
 
 // if (scoreDisplay.innerHTML === "You Win!") {
 //     clearInterval(timerId);
