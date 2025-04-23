@@ -6,7 +6,7 @@ const ballSpeedDisplay = document.querySelector("#ballSpeed");
 const blockWidth = 100;
 const blockHeight = 20;
 
-const ballDiameter = 20;
+const ballDiameter = 30;
 
 const boardWidth = 1660;
 const boardHeight = 900;
@@ -18,23 +18,37 @@ let timerId;
 let xDirection = 1;
 let yDirection = 1;
 let score = 0;
+let nextSpeedThreshold = 5;
 
-const userStart = [(boardWidth-100)/2, 10];
+const userStart = [(boardWidth - 100) / 2, 10];
 let currentPosition = userStart;
 
-const ballStart = [(boardWidth)/2-10, 30];
+const ballStart = [(boardWidth) / 2 - 10, 30];
 let ballCurrentPosition = ballStart;
 
-let ballSpeedMultiplier = 3;
+let ballSpeedMultiplier = 1;
+let maxBallSpeed = 6;
 
 let gameOver = false;
 let stageCleared = false;
 let currentStage = 1;
+let countingDown = false;
 
 const paddleHitSound = new Audio('sounds/616495__empiremonkey__block1.wav');
 const wallHitSound = new Audio('sounds/161593__jorickhoofd__soft-hit-wooden-block-and-sandish-noise.wav');
 const blockHitSound1 = new Audio('sounds/219161__jagadamba__frogblock01.wav');
 const blockHitSound2 = new Audio('sounds/53387__dodgy-c__dodgy_c_wood_block.wav');
+const bgSound = new Audio('sounds/324416__proananasgumpy__background-music-pa.mp3');
+const levelUpSound = new Audio('sounds/439889__simonbay__lushlife_levelup.wav');
+const tickSound = new Audio('sounds/185609__kubawolanin__metal-tick-3.wav');
+const stageClearedSound = new Audio('sounds/634876__digimistic__game-menu-select-sound.wav');
+const gameOverSound = new Audio('sounds/415079__harrietniamh__video-game-death-sound-effect.wav');
+const goSound = new Audio('sounds/131658__bertrof__game-sound-selection.wav');
+bgSound.loop = true;
+bgSound.volume = 0.1;
+
+const soundToggle = document.getElementById('soundToggle');
+let isMuted = localStorage.getItem('isMuted') === 'true';
 //create block
 class Block {
     constructor(xAxis, yAxis) {
@@ -44,6 +58,7 @@ class Block {
         this.topRight = [xAxis + blockWidth, yAxis + blockHeight];
     }
 }
+
 //all the blocks
 const blocks = [
     // new Block(120, 870),
@@ -88,7 +103,7 @@ const blocks = [
     // new Block(1330, 810),
     // new Block(1440,810),
 
-    new Block(1550,870)
+    new Block(1550, 870)
 ]
 
 //add block to grid
@@ -122,6 +137,7 @@ function drawBall() {
     ball.style.left = ballCurrentPosition[0] + "px";
     ball.style.bottom = ballCurrentPosition[1] + "px";
 }
+
 //move user
 function moveUser(e) {
     switch (e.key) {
@@ -152,24 +168,29 @@ grid.appendChild(ball);
 //move ball
 function moveBall() {
     if (gameStarted) {
-        if (score === 0) {
-            ballSpeedMultiplier=1;
-        } else if (score === 4) {
-            ballSpeedMultiplier=1.5;
-        } else if (score === 10) {
-            ballSpeedMultiplier=2;
-        } else if (score === 24) {
-            ballSpeedMultiplier=2.5
-        } else if  (score === 35) {
-            ballSpeedMultiplier=3;
-        } else if (score === 45) {
-            ballSpeedMultiplier=3.5;
-        } else if (score === 60) {
-            ballSpeedMultiplier=4;
+        // if (score === 0) {
+        //     ballSpeedMultiplier = 1;
+        // } else if (score === 4) {
+        //     ballSpeedMultiplier = 1.5;
+        // } else if (score === 10) {
+        //     ballSpeedMultiplier = 2;
+        // } else if (score === 24) {
+        //     ballSpeedMultiplier = 2.5
+        // } else if (score === 35) {
+        //     ballSpeedMultiplier = 3;
+        // } else if (score === 45) {
+        //     ballSpeedMultiplier = 3.5;
+        // } else if (score === 60) {
+        //     ballSpeedMultiplier = 4;
+        if (score >= nextSpeedThreshold && ballSpeedMultiplier < maxBallSpeed) {
+            ballSpeedMultiplier += 0.5;
+            nextSpeedThreshold += 5; // Increase threshold for next speed increase
+            levelUpSound.currentTime = 0; // Rewind to start
+            levelUpSound.play();
         }
         ballSpeedDisplay.innerHTML = ballSpeedMultiplier;
-        ballCurrentPosition[0] += xDirection*ballSpeedMultiplier;
-        ballCurrentPosition[1] += yDirection*ballSpeedMultiplier;
+        ballCurrentPosition[0] += xDirection * ballSpeedMultiplier;
+        ballCurrentPosition[1] += yDirection * ballSpeedMultiplier;
         drawBall();
         checkForCollision();
     }
@@ -184,7 +205,8 @@ function playRandomBlockHitSound() {
     const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
 
     randomSound.currentTime = 0; // Restart if it's already playing
-    randomSound.play().catch(() => {}); // Catch in case autoplay fails
+    randomSound.play().catch(() => {
+    }); // Catch in case autoplay fails
 }
 
 //check for collision
@@ -208,6 +230,8 @@ function checkForCollision() {
 
             //check for win
             if (blocks.length === 0) {
+                stageClearedSound.currentTime = 0; // Rewind to start
+                stageClearedSound.play();
                 stageCleared = true;
                 clearInterval(timerId);
                 // scoreDisplay.innerHTML = "You Win!";
@@ -217,10 +241,10 @@ function checkForCollision() {
                 const winMessage = document.getElementById('winMessage');
                 winMessage.innerText = `You cleared Stage ${currentStage}
                 Get ready for Stage ${currentStage + 1}!`;
-                setTimeout(()=> {
+                setTimeout(() => {
                     document.getElementById('winOverlay').style.display = 'none';
                     currentStage++;
-                    // startStageTwo();
+                    startStageTwo();
                     updateStageUI();
                     stageCleared = false;
                 }, 3000);
@@ -248,7 +272,7 @@ function checkForCollision() {
             new Block(1110, 870),
             new Block(1220, 870),
             new Block(1330, 870),
-            new Block(1440,870),
+            new Block(1440, 870),
 
             new Block(120, 840),
             new Block(230, 840),
@@ -262,7 +286,7 @@ function checkForCollision() {
             new Block(1110, 840),
             new Block(1220, 840),
             new Block(1330, 840),
-            new Block(1440,840),
+            new Block(1440, 840),
 
             new Block(120, 810),
             new Block(230, 810),
@@ -276,7 +300,7 @@ function checkForCollision() {
             new Block(1110, 810),
             new Block(1220, 810),
             new Block(1330, 810),
-            new Block(1440,810),
+            new Block(1440, 810),
         ];
         blocks.push(...newBlocks);
 
@@ -309,7 +333,7 @@ function checkForCollision() {
     ) {
         wallHitSound.curentTime = 0; // Rewind to start
         wallHitSound.play();
-       changeDirection();
+        changeDirection();
     }
 
     //check for user collision
@@ -327,6 +351,8 @@ function checkForCollision() {
     //check for game over
     if (ballCurrentPosition[1] <= 0) {
         gameOver = true;
+        gameOverSound.curentTime= 0; // Rewind to start
+        gameOverSound.play();
         clearInterval(timerId);
         // scoreDisplay.innerHTML = "Game Over";
         document.removeEventListener("keydown", moveUser);
@@ -360,10 +386,11 @@ function changeDirection() {
         return;
     }
 }
+
 // check for pause
 function togglePause() {
     const overlay = document.getElementById('pauseOverlay');
-    if (gameOver === false && stageCleared === false) {
+    if (gameOver === false && stageCleared === false && gameStarted === true) {
         overlay.style.display = overlay.style.display === 'flex' ? 'none' : 'flex';
         if (overlay.style.display === 'flex') {
             clearInterval(timerId);
@@ -378,6 +405,7 @@ function togglePause() {
         }
     }
 }
+
 const pauseButton = document.getElementById('pauseButton');
 pauseButton.addEventListener('click', togglePause);
 
@@ -395,6 +423,7 @@ function moveUserWithMouse(e) {
         }
     }
 }
+
 grid.addEventListener("mousemove", moveUserWithMouse);
 document.removeEventListener("keydown", moveUser);
 
@@ -403,6 +432,7 @@ function restartGame() {
     // Reset game state
     window.location.reload()
 }
+
 // Add score display
 function showLeaderboard() {
     const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
@@ -436,6 +466,7 @@ function showLeaderboard() {
     document.getElementById('leaderboardOverlay').style.display = 'flex';
     document.getElementById('gameOverOverlay').style.display = 'none';
 }
+
 //Add save score
 function saveScore(name) {
     // Get existing leaderboard or start new
@@ -443,12 +474,12 @@ function saveScore(name) {
     const minLeaderboardSize = 10;
     // Add new score
     if (leaderboard.length < minLeaderboardSize) {
-        leaderboard.push({ name: name, score: score,timestamp: Date.now() });
+        leaderboard.push({name: name, score: score, timestamp: Date.now()});
     } else {
         const lowestScore = leaderboard[leaderboard.length - 1].score;
         if (score > lowestScore) {
             leaderboard.pop(); // remove lowest
-            leaderboard.push({ name:name, score:score, timestamp: Date.now() });
+            leaderboard.push({name: name, score: score, timestamp: Date.now()});
         } else {
             return; // Don't update if score is too low
         }
@@ -470,6 +501,7 @@ function saveScore(name) {
     // Display leaderboard
     showLeaderboard();
 }
+
 //Update Stage UI
 function updateStageUI() {
     document.getElementById('stage').innerText = currentStage;
@@ -484,10 +516,13 @@ let audioUnlocked = false;
 
 // Listen for SPACE to start game
 document.addEventListener('keydown', (e) => {
-    if (e.code === 'Space' && !gameStarted) {
+    if (e.code === 'Space' && !gameStarted && !countingDown) {
 
-        if (!audioUnlocked) {
-            unlockAudio();
+        if (!audioUnlocked && !isMuted) {
+            // unlockAudio();
+            bgSound.play().catch(() => {
+                // Handle the error if audio playback fails
+            });
         }
 
         document.getElementById('startText').style.display = 'none';
@@ -510,21 +545,29 @@ function unlockAudio() {
 
 // Countdown before game starts
 function startCountdown() {
+    countingDown = true;
     const countdownEl = document.getElementById('countdown');
     countdownEl.style.display = 'block';
 
     let count = 3;
     countdownEl.textContent = count;
+    tickSound.curentTime =0; // Rewind to start
+    tickSound.play();
 
     const countdownInterval = setInterval(() => {
         count--;
         if (count > 0) {
             countdownEl.textContent = count;
+            tickSound.curentTime = 0; // Rewind to start
+            tickSound.play();
         } else {
             clearInterval(countdownInterval);
+            goSound.curentTime = 0; // Rewind to start
+            goSound.play();
             countdownEl.textContent = "Go!";
             setTimeout(() => {
                 document.getElementById('overlay').style.display = 'none';
+                countdownEl.style.display = 'none';
                 startGame();
             }, 800);
         }
@@ -533,10 +576,38 @@ function startCountdown() {
 
 // Game logic starts here
 function startGame() {
-    gameStarted = true;
+    if (!gameStarted) {
+        gameStarted = true;
+    }
 
-    // Your game loop, ball launch, etc.
 }
+
+// Add event listener to sound toggle button
+soundToggle.addEventListener('click', () => {
+    isMuted = !isMuted;
+    localStorage.setItem('isMuted', isMuted);
+    if (isMuted) {
+        bgSound.pause();
+        soundToggle.textContent = '🔇';
+    } else {
+        bgSound.play().catch(() => {});
+        soundToggle.textContent = '🔊';
+    }
+});
+// Update sound UI
+function updateSoundUI() {
+    if (isMuted) {
+        soundToggle.textContent = "🔇";
+    } else {
+        soundToggle.textContent = "🔊";
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize sound UI
+
+    updateSoundUI();
+});
 
 // let userHasInteracted = false;
 //

@@ -21,7 +21,7 @@
         }
 
         .sidebar {
-            width: 150px;
+            width: 220px;
             background-color: transparent;
             color: white;
             padding: 20px;
@@ -32,12 +32,12 @@
         }
 
         .sidebar h2 {
-            font-size: 24px;
+            font-size: 48px;
             margin: 0;
         }
 
         .sidebar #score {
-            font-size: 20px;
+            font-size: 48px;
             color: #00ffff;
             margin: 10px 0;
             display: flex;
@@ -45,7 +45,7 @@
             align-items: center;
         }
         .sidebar #ballSpeed {
-            font-size: 20px;
+            font-size: 48px;
             color: #00ffff;
             margin: 10px 0;
             display: flex;
@@ -53,7 +53,7 @@
             align-items: center;
         }
         .sidebar #stage {
-            font-size: 20px;
+            font-size: 48px;
             color: #00ffff;
             margin: 10px 0;
             display: flex;
@@ -61,8 +61,11 @@
             align-items: center;
         }
         .sidebar .icon {
-            margin: 10px 0;
-            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            font-size: 48px;
         }
 
         .sidebar .boost {
@@ -122,7 +125,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 96px;
+            font-size: 100px;
             font-weight: bold;
             border-radius: 20px;
             z-index: 10;
@@ -139,7 +142,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 96px;
+            font-size: 100px;
             font-weight: bold;
             border-radius: 20px;
             z-index: 10;
@@ -147,13 +150,13 @@
             display: flex;
         }
         .win-overlay {
-            font-size: 78px;
+            font-size: 100px;
             text-align: center;
         }
         .gameover-overlay button,
         .leaderboard-overlay button,
         .win-overlay button {
-            margin: 10px;
+            margin: 40px 10px 0 10px;
             padding: 10px 20px;
             font-size: 60px;
             border: none;
@@ -198,6 +201,13 @@
         }
 
 
+        button.btn-restart {
+            background-color: #28a745; /* Green */
+        }
+
+        button.btn-leaderboard {
+            background-color: #ffc107; /* Yellow */
+        }
         .name {
             max-width: 300px;
             overflow: hidden;
@@ -229,13 +239,24 @@
 
         .ball {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             background-color: red;
             border-radius: 50%;
         }
     </style>
 </head>
+<script>
+    // Immediately set the sound icon based on localStorage
+    document.addEventListener("DOMContentLoaded", () => {
+        const isMuted = localStorage.getItem("isMuted") === "true";
+        const soundToggle = document.getElementById("soundToggle");
+        if (soundToggle) {
+            soundToggle.textContent = isMuted ? "🔇" : "🔊";
+        }
+    });
+</script>
+
 <body>
 <div class="sidebar">
     <div>
@@ -248,7 +269,9 @@
     </div>
     <div>
         <!--    <div class="icon">❓</div>-->
-        <div class="icon" id="pauseButton">▐▐</div>
+        <div class="icon" id="pauseButton">▐▐&nbsp;</div>
+        <div class="icon" id="soundToggle">🔊</div>
+
     </div>
     <div class="boost">
         <!--    <span>0</span>-->
@@ -260,13 +283,13 @@
     <div class="pause-overlay" id="pauseOverlay">Game Paused</div>
     <div class="gameover-overlay" id="gameOverOverlay">
         <div>Game Over</div>
-        <button onclick="restartGame()">Restart</button>
-        <button onclick="showLeaderboard()">Leaderboard</button>
+        <button class="btn-restart" onclick="restartGame()">Restart</button>
+        <button class="btn-leaderboard" onclick="showLeaderboard()">Leaderboard</button>
     </div>
     <div class="leaderboard-overlay" id="leaderboardOverlay">
         <div>Leaderboard</div>
         <ul class="leaderboard" id="leaderboardList"></ul>
-        <button onclick="restartGame()">Restart</button>
+        <button class="btn-restart" onclick="restartGame()">Restart</button>
     </div>
     <div class="win-overlay" id="winOverlay">
 <!--        <div>Stage Cleared!</div>-->
