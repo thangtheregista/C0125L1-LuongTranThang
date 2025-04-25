@@ -34,6 +34,7 @@ let stageCleared = false;
 let currentStage = 1;
 let countingDown = false;
 
+
 const paddleHitSound = new Audio('sounds/616495__empiremonkey__block1.wav');
 const wallHitSound = new Audio('sounds/161593__jorickhoofd__soft-hit-wooden-block-and-sandish-noise.wav');
 const blockHitSound1 = new Audio('sounds/219161__jagadamba__frogblock01.wav');
@@ -44,11 +45,14 @@ const tickSound = new Audio('sounds/185609__kubawolanin__metal-tick-3.wav');
 const stageClearedSound = new Audio('sounds/634876__digimistic__game-menu-select-sound.wav');
 const gameOverSound = new Audio('sounds/415079__harrietniamh__video-game-death-sound-effect.wav');
 const goSound = new Audio('sounds/131658__bertrof__game-sound-selection.wav');
+// const goSound  = new Audio('sounds/go.mp3');
+const gameWonSound = new Audio('sounds/518733__robinhood76__08935-game-gold-bonus.wav');
 bgSound.loop = true;
 bgSound.volume = 0.1;
 
 const soundToggle = document.getElementById('soundToggle');
 let isMuted = localStorage.getItem('isMuted') === 'true';
+
 //create block
 class Block {
     constructor(xAxis, yAxis) {
@@ -105,6 +109,37 @@ const blocks = [
 
     new Block(1550, 870)
 ]
+const levels = [
+    // Level 1
+    [
+        new Block(1550, 870),
+        new Block(1550, 840),
+
+    ],
+    // Level 2
+    [
+        new Block(1550, 870),
+        new Block(1550, 840),
+        new Block(1550, 810),
+    ],
+    // Level 3
+    [
+        new Block(10, 870),
+    ],
+    // Level 4
+    [
+        new Block(10, 870),
+        new Block(120, 870),
+    ],
+    // Level 5
+    [
+        new Block(10, 870),
+        new Block(120, 870),
+        new Block(10, 840),
+    ],
+];
+let maxStage = levels.length + 1;
+
 
 //add block to grid
 function addBlocks() {
@@ -230,24 +265,77 @@ function checkForCollision() {
 
             //check for win
             if (blocks.length === 0) {
-                stageClearedSound.currentTime = 0; // Rewind to start
-                stageClearedSound.play();
-                stageCleared = true;
-                clearInterval(timerId);
-                // scoreDisplay.innerHTML = "You Win!";
-                document.removeEventListener("keydown", moveUser);
-                grid.removeEventListener("mousemove", moveUserWithMouse);
-                document.getElementById('winOverlay').style.display = 'flex';
-                const winMessage = document.getElementById('winMessage');
-                winMessage.innerText = `You cleared Stage ${currentStage}
-                Get ready for Stage ${currentStage + 1}!`;
-                setTimeout(() => {
-                    document.getElementById('winOverlay').style.display = 'none';
-                    currentStage++;
-                    startStageTwo();
-                    updateStageUI();
-                    stageCleared = false;
-                }, 3000);
+                if (currentStage === maxStage) {
+                    console.log("All levels completed!");
+                    document.getElementById('winOverlay').style.display = 'flex';
+                    document.getElementById('winMessage').innerText = `Winner Winner 
+                    Chicken Dinner!`;
+                    const winOverlay = document.getElementById('winOverlay');
+                    const restartButton = document.createElement('button');
+                    restartButton.className = 'btn-restart';
+                    restartButton.textContent = 'Restart';
+                    restartButton.addEventListener('click', restartGame);
+                    const leaderboardButton = document.createElement('button');
+                    leaderboardButton.className = 'btn-leaderboard';
+                    leaderboardButton.textContent = 'Leaderboard';
+                    leaderboardButton.onclick = showLeaderboard;
+                    winOverlay.appendChild(restartButton)
+                    winOverlay.appendChild(leaderboardButton)
+                    winOverlay.style.color = "#FFD700"; // Gold color for victory
+                    gameWonSound.currentTime = 0; // Rewind to start
+                    gameWonSound.play();
+
+                    gameOver = true;
+                    clearInterval(timerId);
+                    // scoreDisplay.innerHTML = "Game Over";
+                    document.removeEventListener("keydown", moveUser);
+                    grid.removeEventListener("mousemove", moveUserWithMouse);
+                    setTimeout(() => {
+                        const playerName = prompt("Game Over! Enter your name for the leaderboard:");
+                        if (playerName) {
+                            saveScore(playerName);
+                        }
+                    }, 500);
+                    return;
+                } else {
+                    stageClearedSound.currentTime = 0; // Rewind to start
+                    stageClearedSound.play();
+                    stageCleared = true;
+                    clearInterval(timerId);
+                    // scoreDisplay.innerHTML = "You Win!";
+                    document.removeEventListener("keydown", moveUser);
+                    grid.removeEventListener("mousemove", moveUserWithMouse);
+                    document.getElementById('winOverlay').style.display = 'flex';
+                    const winMessage = document.getElementById('winMessage');
+                    winMessage.style.color = "#8A2BE2"; // Level Up
+                    //     winMessage.innerText = `You cleared Stage ${currentStage}
+                    // Get ready for Stage ${currentStage + 1}!`;
+                    winMessage.innerText = `Level Up!`
+
+                    // Countdown
+                    const winOverlay = document.getElementById('winOverlay')
+                    const countdown = document.createElement('p')
+                    winOverlay.appendChild(countdown)
+                    let timeLeft = 3;
+                    countdown.textContent = timeLeft;
+                    const interval = setInterval(()=> {
+                        timeLeft--;
+                        countdown.textContent= timeLeft;
+                        tickSound.curentTime = 0;
+                        tickSound.play()
+                        if (timeLeft <0) {
+                            clearInterval(interval);
+                            winOverlay.removeChild(countdown)
+                            winMessage.style.color = "#FFD700"
+                            document.getElementById('winOverlay').style.display = 'none';
+                            currentStage++;
+                            startStageTwo();
+                            updateStageUI();
+                            stageCleared = false;
+                        }
+                    }, 1000)
+
+                }
             }
         }
     }
@@ -259,50 +347,53 @@ function checkForCollision() {
 
         // New block layout (you can change this!)
         blocks.length = 0;
-        const newBlocks = [
-            new Block(120, 870),
-            new Block(230, 870),
-            new Block(340, 870),
-            new Block(450, 870),
-            new Block(560, 870),
-            new Block(670, 870),
-            new Block(780, 870),
-            new Block(890, 870),
-            new Block(1000, 870),
-            new Block(1110, 870),
-            new Block(1220, 870),
-            new Block(1330, 870),
-            new Block(1440, 870),
+        // const newBlocks = [
+        //     new Block(120, 870),
+        //     new Block(230, 870),
+        //     new Block(340, 870),
+        //     new Block(450, 870),
+        //     new Block(560, 870),
+        //     new Block(670, 870),
+        //     new Block(780, 870),
+        //     new Block(890, 870),
+        //     new Block(1000, 870),
+        //     new Block(1110, 870),
+        //     new Block(1220, 870),
+        //     new Block(1330, 870),
+        //     new Block(1440, 870),
+        //
+        //     new Block(120, 840),
+        //     new Block(230, 840),
+        //     new Block(340, 840),
+        //     new Block(450, 840),
+        //     new Block(560, 840),
+        //     new Block(670, 840),
+        //     new Block(780, 840),
+        //     new Block(890, 840),
+        //     new Block(1000, 840),
+        //     new Block(1110, 840),
+        //     new Block(1220, 840),
+        //     new Block(1330, 840),
+        //     new Block(1440, 840),
+        //
+        //     new Block(120, 810),
+        //     new Block(230, 810),
+        //     new Block(340, 810),
+        //     new Block(450, 810),
+        //     new Block(560, 810),
+        //     new Block(670, 810),
+        //     new Block(780, 810),
+        //     new Block(890, 810),
+        //     new Block(1000, 810),
+        //     new Block(1110, 810),
+        //     new Block(1220, 810),
+        //     new Block(1330, 810),
+        //     new Block(1440, 810),
+        // ];
+        // blocks.push(...newBlocks);
+        const levelLayout = levels[currentStage - 2];
 
-            new Block(120, 840),
-            new Block(230, 840),
-            new Block(340, 840),
-            new Block(450, 840),
-            new Block(560, 840),
-            new Block(670, 840),
-            new Block(780, 840),
-            new Block(890, 840),
-            new Block(1000, 840),
-            new Block(1110, 840),
-            new Block(1220, 840),
-            new Block(1330, 840),
-            new Block(1440, 840),
-
-            new Block(120, 810),
-            new Block(230, 810),
-            new Block(340, 810),
-            new Block(450, 810),
-            new Block(560, 810),
-            new Block(670, 810),
-            new Block(780, 810),
-            new Block(890, 810),
-            new Block(1000, 810),
-            new Block(1110, 810),
-            new Block(1220, 810),
-            new Block(1330, 810),
-            new Block(1440, 810),
-        ];
-        blocks.push(...newBlocks);
+        blocks.push(...levelLayout);
 
         addBlocks(); // re-add to DOM
 
@@ -323,6 +414,7 @@ function checkForCollision() {
         grid.addEventListener("mousemove", moveUserWithMouse);
 
     }
+
 
     //check for wall collision
     if (
@@ -351,10 +443,9 @@ function checkForCollision() {
     //check for game over
     if (ballCurrentPosition[1] <= 0) {
         gameOver = true;
-        gameOverSound.curentTime= 0; // Rewind to start
+        gameOverSound.curentTime = 0; // Rewind to start
         gameOverSound.play();
         clearInterval(timerId);
-        // scoreDisplay.innerHTML = "Game Over";
         document.removeEventListener("keydown", moveUser);
         grid.removeEventListener("mousemove", moveUserWithMouse);
         const gameOverOverlay = document.getElementById('gameOverOverlay');
@@ -386,6 +477,7 @@ function changeDirection() {
         return;
     }
 }
+
 
 // check for pause
 function togglePause() {
@@ -465,6 +557,7 @@ function showLeaderboard() {
 
     document.getElementById('leaderboardOverlay').style.display = 'flex';
     document.getElementById('gameOverOverlay').style.display = 'none';
+    document.getElementById('winOverlay').style.display = 'none';
 }
 
 //Add save score
@@ -551,7 +644,7 @@ function startCountdown() {
 
     let count = 3;
     countdownEl.textContent = count;
-    tickSound.curentTime =0; // Rewind to start
+    tickSound.curentTime = 0; // Rewind to start
     tickSound.play();
 
     const countdownInterval = setInterval(() => {
@@ -590,10 +683,12 @@ soundToggle.addEventListener('click', () => {
         bgSound.pause();
         soundToggle.textContent = '🔇';
     } else {
-        bgSound.play().catch(() => {});
+        bgSound.play().catch(() => {
+        });
         soundToggle.textContent = '🔊';
     }
 });
+
 // Update sound UI
 function updateSoundUI() {
     if (isMuted) {
@@ -608,6 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateSoundUI();
 });
+
 
 // let userHasInteracted = false;
 //
