@@ -6,6 +6,60 @@
 </head>
 <body>
 <script>
+    function simpleArraySum(ar) {
+        // Write your code here
+        let sum = 0;
+        for (let i = 0; i < ar.length; i++) {
+            sum += ar[i];
+        }
+        return sum;
+    }
+    function staircase(n) {
+        // Write your code here
+        let str = '';
+        for (let i = 0; i < n; i++) {
+            str += ' '.repeat(n - i - 1) + '#'.repeat(i + 1) + '\n';
+        }
+        console.log(str);
+    }
+    function miniMaxSum(arr) {
+        // Write your code here
+        let min = Math.min(...arr);
+        let max = Math.max(...arr);
+        let sum = arr.reduce((a, b) => a + b, 0);
+        console.log(sum - max, sum - min);
+    }
+    function birthdayCakeCandles(candles) {
+            // Write your code here
+            let max = Math.max(...candles);
+            let count = 0;
+            for (let i = 0; i < candles.length; i++) {
+                if (candles[i] === max) {
+                    count++;
+                }
+            }
+            return count;
+    }
+    function timeConversion(s) {
+        // Write your code here
+        let amPm = s.charAt(8);
+        let militaryHour = '';
+        if (amPm === 'A') {
+            if (s.substring(0,2)==="12") {
+                militaryHour = '00';
+            } else {
+                militaryHour = s.substring(0,2)
+            }
+        } else {
+            if (s.substring(0,2) === "12") {
+                militaryHour = s.substring(0,2)
+            } else {
+                militaryHour = parseInt(s.substring(0,2)) + 12;
+            }
+        }
+        return militaryHour + s.substring(2,8)
+    }
+
     function plusMinus(arr) {
         // Write your code here
         let countPos = 0;

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 40px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            margin: 0 auto;
+            width: 80%;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h2>Quản lí sách</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Mã số sách</th>
+        <th>Tên sách</th>
+        <th>Năm xuất bản</th>
+        <th>Số quyển</th>
+        <th>Tình trạng</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<div id="mostBook"></div>
+
+<div class="buttons">
+    <button onclick="addOldBook()">Thêm sách đã có</button>
+    <button onclick="addBook()">Thêm sách mới</button>
+    <button onclick="borrowBook()">Mượn sách</button>
+    <button onclick="findMostBooks()">Hiển thị sách nhiều nhất</button>
+</div>
+<script>
+    // Cau 1
+    function checkAverage() {
+        let numbers = [];
+        let sum = 0;
+        let count = 0;
+        let average;
+        let n;
+        do {
+            let input = prompt("Nhập số lượng phần tử của mảng:");
+            n = Number(input);
+            if (n <= 0 || n > 50 || !Number.isInteger(n)) {
+                console.log(!Number.isInteger(n))
+                alert("Số lượng phần tử không hợp lệ. Vui lòng nhập lại.");
+            } else {
+                alert("Số lượng phần tử hợp lệ.");
+                break;
+            }
+        } while (true);
+        for (let i = 0; i < n; i++) {
+            numbers[i] = parseInt(prompt("Nhập phần tử thứ " + (i + 1)))
+        }
+        console.log(numbers)
+        for (let i = 0; i < n; i++) {
+            if (i % 2 === 0 && numbers[i] % 2 !== 0) {
+                sum += numbers[i]
+                count++
+            }
+        }
+        if (count === 0) {
+            alert("Không có số lẻ ở vị trí chẵn trong mảng.");
+        } else {
+            average = sum / count;
+            alert("Trung bình cộng của các số lẻ ở vị trí chẵn trong mảng là: " + average);
+            console.log(average)
+        }
+    }
+
+    // Cau 2
+    function sumOfDivisor(num) {
+        let sum = 0;
+        for (let i = 1; i <= num / 2; i++) {
+            if (num % i === 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+
+    function checkPairOfNumber(num1, num2) {
+        let sum1 = sumOfDivisor(num1);
+        let sum2 = sumOfDivisor(num2);
+        if (sum1 === num2 && sum2 === num1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Cau 3
+    let books = [];
+
+    class Book {
+        constructor(id, title, year, numberOfBooks, condition) {
+            this.id = id;
+            this.title = title;
+            this.year = year;
+            this.numberOfBooks = numberOfBooks;
+            this.condition = numberOfBooks > 0;
+        }
+    }
+
+    function isValidID(id) {
+        const regex = /^[1-5][0-9]{4}$/;
+        return regex.test(id);
+    }
+
+    function isValidYear(year) {
+        if (year.length !== 4) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function isValidNumberOfBooks(numberOfBooks) {
+        if (numberOfBooks < 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    function addBook() {
+        let id, title, year, numberOfBooks;
+        while (true) {
+            id = prompt("Nhập mã số sách (5 ký tự):");
+            if (isValidID(id)) {
+                break;
+            } else {
+                alert("Mã số sách không hợp lệ. Vui lòng nhập lại.");
+            }
+        }
+        title = prompt("Nhập tên sách:");
+        while (true) {
+            year = prompt("Nhập năm xuất bản (4 ký tự):");
+            if (isValidYear(year)) {
+                break;
+            } else {
+                alert("Năm xuất bản không hợp lệ. Vui lòng nhập lại.");
+            }
+        }
+        while (true) {
+            numberOfBooks = parseInt(prompt("Nhập số quyển sách:"));
+            if (isValidNumberOfBooks(numberOfBooks)) {
+                break;
+            } else {
+                alert("Số quyển sách không hợp lệ. Vui lòng nhập lại.");
+            }
+        }
+        let book = new Book(id, title, year, numberOfBooks);
+        books.push(book);
+        console.log(books)
+        displayBooks();
+        alert("Sách đã được thêm thành công!");
+    }
+    function addOldBook() {
+        let id = prompt("Nhập mã số sách (5 ký tự):");
+        let book = books.find(b => b.id === id);
+        if (!book) {
+            alert("Không tìm thấy sách với mã số này.");
+            return;
+        }
+        let input = prompt("Nhập số lượng cần thêm:");
+        let amount = Number(input);
+        if (!Number.isInteger(amount) || amount <= 0) {
+            alert("Số lượng không hợp lệ.");
+            return;
+        }
+        book.numberOfBooks += amount;
+        book.condition = book.numberOfBooks > 0;
+        alert("Sách đã được thêm thành công!");
+        displayBooks();
+    }
+    function borrowBook() {
+        let id = prompt("Nhập mã số sách (5 ký tự):");
+        let book = books.find(b => b.id === id);
+        if (!book) {
+            alert("Không tìm thấy sách với mã số này.");
+            return;
+        }
+        if (book.numberOfBooks > 0) {
+            book.numberOfBooks--;
+            book.condition = book.numberOfBooks > 0;
+            alert("Mượn sách thành công!");
+        } else {
+            alert("Sách đã hết.");
+        }
+        displayBooks();
+    }
+    function findMostBooks() {
+        const mostBooksDiv = document.getElementById("mostBook");
+        let max = Math.max(...books.map(b => b.numberOfBooks));
+        let mostBooks = books.filter(b => b.numberOfBooks === max);
+        let html = `<div>Sách có số lượng nhiều nhất:</div><ul>`;
+        for (let book of mostBooks) {
+            html += `<li>${book.title} (Mã: ${book.id}, Năm: ${book.year}), Số quyển: ${book.numberOfBooks}</li>`;
+        }
+        html += `</ul>`;
+        mostBooksDiv.innerHTML = html;
+    }
+    function displayBooks() {
+        let tableBody = document.querySelector("tbody");
+        tableBody.innerHTML = "";
+        for (let book of books) {
+            let row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${book.id}</td>
+                <td>${book.title}</td>
+                <td>${book.year}</td>
+                <td>${book.numberOfBooks}</td>
+                <td>${book.condition ? "Còn" : "Hết"}</td>
+            `;
+            tableBody.appendChild(row);
+        }
+    }
+    books.push(new Book("12345", "Lập trình JavaScript", "2020", 10));
+    books.push(new Book("24567", "Cơ sở dữ liệu", "2018", 0));
+    books.push(new Book("51234", "Thiết kế Web", "2022", 5));
+    displayBooks()
+</script>
+</body>
+</html>
