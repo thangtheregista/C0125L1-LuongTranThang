@@ -1,0 +1,10 @@
+.submit-button-static {
+    background-color: blue;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    margin: 0 auto;
+}

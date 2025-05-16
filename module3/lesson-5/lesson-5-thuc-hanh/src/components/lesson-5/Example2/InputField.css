@@ -1,0 +1,15 @@
+.input-group-static {
+    margin-bottom: 15px;
+}
+.input-group-static label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group-static input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
