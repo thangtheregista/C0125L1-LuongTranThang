@@ -1,34 +1,78 @@
-import Example1 from "./components/lesson-5/Example1";
-import FormRegister from "./components/lesson-5/Example2/FormRegister";
-import Exercise1 from "./components/lesson-5/Exercise/Exercise1";
-import TheName from "./components/lesson-5/Exercise/TheName";
-import AgeDisplay from "./components/lesson-5/Exercise/AgeDisplay";
-import Greeting from "./components/lesson-5/Exercise/Greeting";
-import Parent from "./components/lesson-5/Exercise/Parent";
-import LoginStatus from "./components/lesson-5/Exercise/LoginStatus";
-import PostList from "./components/lesson-5/Exercise/PostList";
-import SearchBar from "./components/lesson-5/Exercise/SearchBar";
-import Alert from "./components/lesson-5/Exercise/Alert";
-import Navbar from "./components/lesson-5/Exercise/Navbar";
-import ContactForm from "./components/lesson-5/Exercise/ContactForm";
+// import Example1 from "./components/lesson-5/Example1";
+// import FormRegister from "./components/lesson-5/Example2/FormRegister";
+// import Exercise1 from "./components/lesson-5/Exercise/Exercise1";
+// import TheName from "./components/lesson-5/Exercise/TheName";
+// import AgeDisplay from "./components/lesson-5/Exercise/AgeDisplay";
+// import Greeting from "./components/lesson-5/Exercise/Greeting";
+// import Parent from "./components/lesson-5/Exercise/Parent";
+// import LoginStatus from "./components/lesson-5/Exercise/LoginStatus";
+// import PostList from "./components/lesson-5/Exercise/PostList";
+// import SearchBar from "./components/lesson-5/Exercise/SearchBar";
+// import Alert from "./components/lesson-5/Exercise/Alert";
+// import Navbar from "./components/lesson-5/Exercise/Navbar";
+// import ContactForm from "./components/lesson-5/Exercise/ContactForm";
+
+import DemoOnClickEvent from "./components/lesson-6/example/DemoOnClickEvent";
+import DemoOnDoubleClickEvent from "./components/lesson-6/example/DemoOnDoubleClickEvent";
+import DemoOnMouseEnterAnOnMouseLeave from "./components/lesson-6/example/DemoOnMouseEnterAnOnMouseLeave";
+import DemoMouseOverAndMouseOut from "./components/lesson-6/example/DemoMouseOverAndMouseOut";
+import DemoFocusAndBlur from "./components/lesson-6/example/DemoFocusAndBlur";
+import DemoOnKeyUpAndOnKeyDown from "./components/lesson-6/example/DemoOnKeyUpAndOnKeyDown";
+import DemoOnSubmit from "./components/lesson-6/example/DemoOnSubmit";
+import DemoOnChange from "./components/lesson-6/example/DemoOnChange";
+import Parent from "./components/lesson-6/example/Parent";
+import Counter from "./components/lesson-6/exercise/on-class/Counter";
+import Search from "./components/lesson-6/exercise/on-class/Search";
+import Select from "./components/lesson-6/exercise/on-class/Select";
+import Exercise1 from "./components/lesson-6/exercise/homework/Exercise1";
+import Homework2 from "./components/lesson-6/exercise/homework/Homework2";
+import Homework3 from "./components/lesson-6/exercise/homework/Homework3";
+import Homework4 from "./components/lesson-6/exercise/homework/Homework4";
+import Homework5 from "./components/lesson-6/exercise/homework/Homework5";
+import Homework6 from "./components/lesson-6/exercise/homework/Homework6";
+import Homework7 from "./components/lesson-6/exercise/homework/Homework7";
+import Homework9 from "./components/lesson-6/exercise/homework/Homework9";
+import Homework11 from "./components/lesson-6/exercise/homework/Homework11";
+import Homework13 from "./components/lesson-6/exercise/homework/Homework13";
+import Homework17 from "./components/lesson-6/exercise/homework/Homework17";
+import Homework18 from "./components/lesson-6/exercise/homework/Homework18";
+import Homework21 from "./components/lesson-6/exercise/homework/Homework21";
+import Homework22 from "./components/lesson-6/exercise/homework/Homework22";
+import Homework29 from "./components/lesson-6/exercise/homework/Homework29";
 
 function App() {
-  return (
-    <div className="App">
-        <FormRegister/>
-        <Exercise1/>
-        <TheName name="Thang" />
-        <AgeDisplay age="26"/>
-        <Greeting message="Xin chao!"/>
-        <Parent/>
-        <LoginStatus isLoggedIn={true}/>
-        <PostList/>
-        <SearchBar/>
-        <Alert success="Success" warning="Warning" error="Error"/>
-        <Navbar links={["Home", "About", "Contact"]} />
-        <ContactForm/>
-    </div>
-  );
+    return (
+        <div className="App">
+            {/*<FormRegister/>*/}
+            {/*<Exercise1/>*/}
+            {/*<TheName name="Thang" />*/}
+            {/*<AgeDisplay age="26"/>*/}
+            {/*<Greeting message="Xin chao!"/>*/}
+            {/*<Parent/>*/}
+            {/*<LoginStatus isLoggedIn={true}/>*/}
+            {/*<PostList/>*/}
+            {/*<SearchBar/>*/}
+            {/*<Alert success="Success" warning="Warning" error="Error"/>*/}
+            {/*<Navbar links={["Home", "About", "Contact"]} />*/}
+            {/*<ContactForm/>*/}
+            {/*<Select/>*/}
+            <Exercise1/>
+            <Homework2/>
+            <Homework3/>
+            <Homework4/>
+            <Homework5/>
+            <Homework6 />
+            <Homework7/>
+            <Homework9/>
+            <Homework11/>
+            <Homework13/>
+            <Homework17/>
+            <Homework18/>
+            <Homework21 />
+            <Homework22/>
+            <Homework29/>
+        </div>
+    );
 }
 
 export default App;
