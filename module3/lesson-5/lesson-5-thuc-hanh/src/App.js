@@ -12,44 +12,47 @@
 // import Navbar from "./components/lesson-5/Exercise/Navbar";
 // import ContactForm from "./components/lesson-5/Exercise/ContactForm";
 
-import DemoOnClickEvent from "./components/lesson-6/example/DemoOnClickEvent";
-import DemoOnDoubleClickEvent from "./components/lesson-6/example/DemoOnDoubleClickEvent";
-import DemoOnMouseEnterAnOnMouseLeave from "./components/lesson-6/example/DemoOnMouseEnterAnOnMouseLeave";
-import DemoMouseOverAndMouseOut from "./components/lesson-6/example/DemoMouseOverAndMouseOut";
-import DemoFocusAndBlur from "./components/lesson-6/example/DemoFocusAndBlur";
-import DemoOnKeyUpAndOnKeyDown from "./components/lesson-6/example/DemoOnKeyUpAndOnKeyDown";
-import DemoOnSubmit from "./components/lesson-6/example/DemoOnSubmit";
-import DemoOnChange from "./components/lesson-6/example/DemoOnChange";
-import Parent from "./components/lesson-6/example/Parent";
-import Counter from "./components/lesson-6/exercise/on-class/Counter";
-import Search from "./components/lesson-6/exercise/on-class/Search";
-import Select from "./components/lesson-6/exercise/on-class/Select";
-import Exercise1 from "./components/lesson-6/exercise/homework/Exercise1";
-import Homework2 from "./components/lesson-6/exercise/homework/Homework2";
-import Homework3 from "./components/lesson-6/exercise/homework/Homework3";
-import Homework4 from "./components/lesson-6/exercise/homework/Homework4";
-import Homework5 from "./components/lesson-6/exercise/homework/Homework5";
-import Homework6 from "./components/lesson-6/exercise/homework/Homework6";
-import Homework7 from "./components/lesson-6/exercise/homework/Homework7";
-import Homework9 from "./components/lesson-6/exercise/homework/Homework9";
-import Homework11 from "./components/lesson-6/exercise/homework/Homework11";
-import Homework13 from "./components/lesson-6/exercise/homework/Homework13";
-import Homework17 from "./components/lesson-6/exercise/homework/Homework17";
-import Homework18 from "./components/lesson-6/exercise/homework/Homework18";
-import Homework21 from "./components/lesson-6/exercise/homework/Homework21";
-import Homework22 from "./components/lesson-6/exercise/homework/Homework22";
-import Homework29 from "./components/lesson-6/exercise/homework/Homework29";
-import Example1 from "./components/lesson-7/example/Example1";
-import Example2 from "./components/lesson-7/example/Example2";
-import NewsletterForm from "./components/lesson-7/example/example3/NewsletterForm";
-import Product from "./components/lesson-7/example/example4/Product";
-import Bt1 from "./components/lesson-7/bt/Bt1";
-import User from "./components/lesson-8/bt-tren-lop/User";
-import Todo from "./components/lesson-8/bt-tren-lop/bt2/Todo";
-import Cart from "./components/lesson-8/bt-tren-lop/bt3/Cart";
-import Comment from "./components/lesson-7/bt4/Comment";
-import Login from "./components/lesson-8/bt-tren-lop/bt4/Login";
+// import DemoOnClickEvent from "./components/lesson-6/example/DemoOnClickEvent";
+// import DemoOnDoubleClickEvent from "./components/lesson-6/example/DemoOnDoubleClickEvent";
+// import DemoOnMouseEnterAnOnMouseLeave from "./components/lesson-6/example/DemoOnMouseEnterAnOnMouseLeave";
+// import DemoMouseOverAndMouseOut from "./components/lesson-6/example/DemoMouseOverAndMouseOut";
+// import DemoFocusAndBlur from "./components/lesson-6/example/DemoFocusAndBlur";
+// import DemoOnKeyUpAndOnKeyDown from "./components/lesson-6/example/DemoOnKeyUpAndOnKeyDown";
+// import DemoOnSubmit from "./components/lesson-6/example/DemoOnSubmit";
+// import DemoOnChange from "./components/lesson-6/example/DemoOnChange";
+// import Parent from "./components/lesson-6/example/Parent";
+// import Counter from "./components/lesson-6/exercise/on-class/Counter";
+// import Search from "./components/lesson-6/exercise/on-class/Search";
+// import Select from "./components/lesson-6/exercise/on-class/Select";
+// import Exercise1 from "./components/lesson-6/exercise/homework/Exercise1";
+// import Homework2 from "./components/lesson-6/exercise/homework/Homework2";
+// import Homework3 from "./components/lesson-6/exercise/homework/Homework3";
+// import Homework4 from "./components/lesson-6/exercise/homework/Homework4";
+// import Homework5 from "./components/lesson-6/exercise/homework/Homework5";
+// import Homework6 from "./components/lesson-6/exercise/homework/Homework6";
+// import Homework7 from "./components/lesson-6/exercise/homework/Homework7";
+// import Homework9 from "./components/lesson-6/exercise/homework/Homework9";
+// import Homework11 from "./components/lesson-6/exercise/homework/Homework11";
+// import Homework13 from "./components/lesson-6/exercise/homework/Homework13";
+// import Homework17 from "./components/lesson-6/exercise/homework/Homework17";
+// import Homework18 from "./components/lesson-6/exercise/homework/Homework18";
+// import Homework21 from "./components/lesson-6/exercise/homework/Homework21";
+// import Homework22 from "./components/lesson-6/exercise/homework/Homework22";
+// import Homework29 from "./components/lesson-6/exercise/homework/Homework29";
+// import Example1 from "./components/lesson-7/example/Example1";
+// import Example2 from "./components/lesson-7/example/Example2";
+// import NewsletterForm from "./components/lesson-7/example/example3/NewsletterForm";
+// import Product from "./components/lesson-7/example/example4/Product";
+// import Bt1 from "./components/lesson-7/bt/Bt1";
+// import User from "./components/lesson-8/bt-tren-lop/User";
+// import Todo from "./components/lesson-8/bt-tren-lop/bt2/Todo";
+// import Cart from "./components/lesson-8/bt-tren-lop/bt3/Cart";
+// import Comment from "./components/lesson-7/bt4/Comment";
+// import Login from "./components/lesson-8/bt-tren-lop/bt4/Login";
+// import Example1 from "./components/lesson-9/example/Example1";
 
+import User from "./components/lesson-9/example/3/User";
+import Product from "./components/lesson-9/example/4/Product";
 
 function App() {
     return (
@@ -84,7 +87,8 @@ function App() {
             {/*<Homework29/>*/}
             {/*<Cart/>*/}
             {/*<Bt1/>*/}
-            <Login/>
+            {/*<Login/>*/}
+            <Product/>
         </div>
     );
 }
