@@ -51,8 +51,17 @@
 // import Login from "./components/lesson-8/bt-tren-lop/bt4/Login";
 // import Example1 from "./components/lesson-9/example/Example1";
 
-import User from "./components/lesson-9/example/3/User";
-import Product from "./components/lesson-9/example/4/Product";
+// import User from "./components/lesson-9/example/3/User";
+// import Product from "./components/lesson-9/example/4/Product";
+
+import Language from "./components/lesson-9/exercise/Exercise1/Language";
+
+import Shop from "./components/lesson-9/exercise/Exercise2/Shop";
+import Clock from "./components/lesson-9/exercise/Exercise3/Clock";
+import TodoApp from "./components/lesson-9/exercise/Exercise4/TodoApp";
+import Color from "./components/lesson-9/exercise/Exercise5/Color";
+import BookList from "./components/lesson-9/exercise/Exercise6/BookList";
+import Temperature from "./components/lesson-9/exercise/Exercise7/Temperature";
 
 function App() {
     return (
@@ -88,7 +97,14 @@ function App() {
             {/*<Cart/>*/}
             {/*<Bt1/>*/}
             {/*<Login/>*/}
-            <Product/>
+            {/*<Product/>*/}
+            {/*<Language/>*/}
+            {/*<Shop/>*/}
+            {/*<Clock/>*/}
+            {/*<TodoApp/>*/}
+            {/*<Color/>*/}
+            {/*<BookList/>*/}
+            <Temperature/>
         </div>
     );
 }
