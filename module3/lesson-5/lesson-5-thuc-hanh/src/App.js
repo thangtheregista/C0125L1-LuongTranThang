@@ -54,14 +54,17 @@
 // import User from "./components/lesson-9/example/3/User";
 // import Product from "./components/lesson-9/example/4/Product";
 
-import Language from "./components/lesson-9/exercise/Exercise1/Language";
+// import Language from "./components/lesson-9/exercise/Exercise1/Language";
+//
+// import Shop from "./components/lesson-9/exercise/Exercise2/Shop";
+// import Clock from "./components/lesson-9/exercise/Exercise3/Clock";
+// import TodoApp from "./components/lesson-9/exercise/Exercise4/TodoApp";
+// import Color from "./components/lesson-9/exercise/Exercise5/Color";
+// import BookList from "./components/lesson-9/exercise/Exercise6/BookList";
+// import Temperature from "./components/lesson-9/exercise/Exercise7/Temperature";
 
-import Shop from "./components/lesson-9/exercise/Exercise2/Shop";
-import Clock from "./components/lesson-9/exercise/Exercise3/Clock";
-import TodoApp from "./components/lesson-9/exercise/Exercise4/TodoApp";
-import Color from "./components/lesson-9/exercise/Exercise5/Color";
-import BookList from "./components/lesson-9/exercise/Exercise6/BookList";
-import Temperature from "./components/lesson-9/exercise/Exercise7/Temperature";
+import FormSimple from "./components/lesson-10/example/1/FormSimple";
+import GiftForm from "./components/lesson-10/example/2/GiftForm";
 
 function App() {
     return (
@@ -104,7 +107,9 @@ function App() {
             {/*<TodoApp/>*/}
             {/*<Color/>*/}
             {/*<BookList/>*/}
-            <Temperature/>
+            {/*<Temperature/>*/}
+            {/*<FormSimple/>*/}
+            <GiftForm/>
         </div>
     );
 }
