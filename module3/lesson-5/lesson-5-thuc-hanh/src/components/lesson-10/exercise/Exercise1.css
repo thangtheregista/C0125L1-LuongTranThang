@@ -1,0 +1,48 @@
+.exercise1 {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.exercise1 form {
+    display: flex;
+    flex-direction: column;
+}
+
+.exercise1 label {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.exercise1 input[type="text"],
+.exercise1 input[type="email"],
+.exercise1 select {
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.exercise1 input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.exercise1 button {
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.exercise1 button:hover {
+    background-color: #0056b3;
+}
