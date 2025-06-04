@@ -66,9 +66,12 @@
 // import FormSimple from "./components/lesson-10/example/1/FormSimple";
 // import GiftForm from "./components/lesson-10/example/2/GiftForm";
 
-import Exercise1 from "./components/lesson-10/exercise/Exercise1";
-import Exercise2 from "./components/lesson-10/exercise/Exercise2";
-import Exercise3 from "./components/lesson-10/exercise/Exercise3";
+// import Exercise1 from "./components/lesson-10/exercise/Exercise1";
+// import Exercise2 from "./components/lesson-10/exercise/Exercise2";
+// import Exercise3 from "./components/lesson-10/exercise/Exercise3";
+// import Exercise6 from "./components/lesson-10/exercise/Exercise6";
+// import Exercise4 from "./components/lesson-10/exercise/Exercise4";
+// import Exercise5 from "./components/lesson-10/exercise/Exercise5";
 
 function App() {
     return (
@@ -114,9 +117,12 @@ function App() {
             {/*<Temperature/>*/}
             {/*<FormSimple/>*/}
             {/*<GiftForm/>*/}
-            <Exercise1/>
-            <Exercise2/>
-            <Exercise3/>
+            {/*<Exercise1/>*/}
+            {/*<Exercise2/>*/}
+            {/*<Exercise3/>*/}
+            {/*<Exercise4/>*/}
+            {/*<Exercise5/>*/}
+            {/*<Exercise6/>*/}
         </div>
     );
 }

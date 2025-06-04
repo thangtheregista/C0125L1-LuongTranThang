@@ -1,0 +1,75 @@
+.exercise4 {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #fefefe;
+    font-family: Arial, sans-serif;
+}
+
+.exercise4 form {
+    display: flex;
+    flex-direction: column;
+}
+
+.exercise4 label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+.exercise4 input[type="text"],
+.exercise4 input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.exercise4 fieldset {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+}
+
+.exercise4 legend {
+    font-weight: bold;
+    color: #444;
+    padding: 0 5px;
+}
+
+.exercise4 input[type="radio"],
+.exercise4 input[type="checkbox"] {
+    margin-right: 6px;
+    margin-left: 10px;
+}
+
+.exercise4 .error {
+    color: #d9534f;
+    font-size: 13px;
+    margin-top: 4px;
+    display: block;
+}
+
+.exercise4 button[type="submit"] {
+    margin-top: 25px;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.exercise4 button[type="submit"]:hover {
+    background-color: #218838;
+}

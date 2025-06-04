@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-// import './Exercise3.css';
+import './Exercise3.css';
 
 const Exercise3 = () => {
     const [formData, setFormData] = useState({
@@ -63,7 +63,7 @@ const Exercise3 = () => {
     }
     return(
         <div>
-            <form action="" onSubmit={(e) => handleSubmit(e)}>
+            <form action="" onSubmit={(e) => handleSubmit(e)} className="exercise3">
                 <label>
                     Tên
                 </label>
