@@ -1,6 +1,9 @@
-import {NavLink, Route, Routes} from "react-router-dom";
+import {Navigate, NavLink, Route, Routes} from "react-router-dom";
 import ProductList from "./ProductList";
 import ProductDetail from "./ProductDetail";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
 const Exercise2 = () => {
     const products = [
@@ -14,13 +17,22 @@ const Exercise2 = () => {
     ]
     return(
         <div>
-            <nav>
-                <NavLink to="/product/">Product list</NavLink>
-            </nav>
-            <Routes>
-                <Route path="/product" element={<ProductList products={products}/>}>
+            <Navbar expand="lg" className="bg-body-tertiary">
+                <Container>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link>
+                                <NavLink className={({ isActive }) => (isActive ? ' active' : 'inactive')} to="/product">Product list</NavLink>
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
 
-                </Route>
+            <Routes>
+                <Route index path="/" element={<Navigate to="/product" replace />}></Route>
+                <Route path="/product" element={<ProductList products={products}/>}></Route>
                 <Route path="/product/:id" element={<ProductDetail products={products} />}></Route>
             </Routes>
         </div>

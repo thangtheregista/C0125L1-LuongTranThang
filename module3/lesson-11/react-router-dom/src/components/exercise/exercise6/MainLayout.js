@@ -3,10 +3,15 @@ import {NavLink, Outlet} from "react-router-dom";
 const MainLayout = ( ) => {
     return(
         <div>
-            <NavLink to="product">Product</NavLink>
+            <header>
+                This is header
+            </header>
+            <NavLink to="home">Home</NavLink>
             <NavLink to="contact">Contact</NavLink>
-            <NavLink to="detail">Detail</NavLink>
             <Outlet/>
+            <footer>
+                This is footer
+            </footer>
         </div>
     )
 }
