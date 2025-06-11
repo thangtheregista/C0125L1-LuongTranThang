@@ -2,9 +2,8 @@ import { useNavigate } from "react-router-dom";
 function Login({ setIsAuthenticated }) {
     const navigate = useNavigate();
     const handleOnClick = (e) => {
-        e.preventDefault()
-        localStorage.setItem('isAuthenticated', 'true');  // lưu trạng thái
         setIsAuthenticated(true);
+        localStorage.setItem('isAuthenticated', 'true');
         navigate('/dashboard');
     }
     return (
