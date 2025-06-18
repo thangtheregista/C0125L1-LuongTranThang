@@ -1,0 +1,16 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "ReactJS Cơ bản",
+      "instructor": "Thầy An",
+      "duration": 30
+    },
+    {
+      "id": 2,
+      "title": "NodeJS Nâng cao",
+      "instructor": "Cô Bình",
+      "duration": 45
+    }
+  ]
+}

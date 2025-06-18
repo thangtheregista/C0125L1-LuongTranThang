@@ -40,6 +40,7 @@ export default function Products() {
         });
     }
     const router = useRouter();
+
     useEffect(() => {
         const user = localStorage.getItem("username");
         if (!user) {
@@ -56,7 +57,7 @@ export default function Products() {
         <div>
             <Layout>
                 <ProductList products={products}/>
-                <ProductForm handleSubmit={handleSubmit} productForm={productForm} handleChange={handleChange} />
+                <ProductForm handleSubmit={handleSubmit} productForm={productForm} handleChange={handleChange} handleDelete={handleDelete} />
             </Layout>
         </div>
     )

@@ -1,0 +1,16 @@
+{
+  "orders": [
+    {
+      "id": 1,
+      "customer": "Mai Hương",
+      "total": 150,
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "customer": "Phan Minh",
+      "total": 320,
+      "status": "shipped"
+    }
+  ]
+}

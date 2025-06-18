@@ -32,6 +32,11 @@ export default function Dashboard() {
         setTasks(updatedTasks)
         localStorage.setItem("tasks", JSON.stringify(updatedTasks))
     }
+    const handleDelete = (id) => {
+        const updatedTasks = tasks.filter((task) => task.id !== id)
+        setTasks(updatedTasks)
+        localStorage.setItem("tasks", JSON.stringify(updatedTasks))
+    }
     useEffect(() => {
         const user = localStorage.getItem("username")
         if (!user) {
@@ -48,8 +53,8 @@ export default function Dashboard() {
     return(
         <div>
             <Layout>
-                <TaskList tasks={tasks} handleCheckboxChange={handleCheckboxChange}/>
-                <TaskForm task={task} setTask={setTask} handleSubmit={handleSubmit}/>
+                <TaskList tasks={tasks} handleCheckboxChange={handleCheckboxChange} handleDelete={handleDelete}/>
+                <TaskForm task={task} setTask={setTask} handleSubmit={handleSubmit} />
             </Layout>
         </div>
     )
