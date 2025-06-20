@@ -4,12 +4,14 @@
       "id": "2",
       "name": "Trần Thị B",
       "age": 22,
+      "email": "abc@gmail.com",
       "major": "Kinh tế"
     },
     {
       "id": "3",
       "name": "Nguyễn Văn C",
       "age": 27,
+      "email": "def@gmail.com",
       "major": "Công nghệ thông tin"
     }
   ]
