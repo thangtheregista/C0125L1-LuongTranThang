@@ -1,11 +1,16 @@
 .header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    height: 120px;
+    padding: 10px 0;
+}
+.header-wrapper {
     display: flex;
     align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
     justify-content: space-between;
-    padding: 10px 380px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;;
-    height: 120px;
 }
 .header-left {
     margin-right: 20px;
@@ -31,7 +36,7 @@
 }
 .search-trending span {
     font-size: 14px;
-    color: #6c757d;
+    color: red;
     margin-right: 10px;
 }
 .search-trending a {
@@ -105,14 +110,16 @@
     justify-content: center;
     flex-direction: column;
     gap: 5px;
-    margin-right: 20px;
     position: relative;
+    margin-right: 20px;
 }
 .cart img {
     display: inline-block;
     width: 23px;
     height: 23px;
     cursor: pointer;
+    vertical-align: baseline;
+
 }
 .cart a {
     text-decoration: none;
@@ -124,8 +131,8 @@
 }
 .cart-badge {
     position: absolute;
-    top: -5px;
-    right: -10px;
+    top: 0px;
+    right: 0px;
     background-color: #DC3333;
     color: white;
     border-radius: 50%;

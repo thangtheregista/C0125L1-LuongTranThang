@@ -1,0 +1,68 @@
+.main-nav {
+    width: 100vw;
+    background-color: red;
+    border: 1px dashed white;
+    display: flex;
+    justify-content: center;
+    height: 55px;
+}
+.main-nav-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 0 20px 0 0;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.nav-links li {
+    padding: 0 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid white;
+}
+.nav-links .active {
+    background-color: #ff5722;
+}
+.nav-links li:hover {
+    background-color: #ff5722;
+}
+.nav-links li:last-child {
+    border-right: none;
+}
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.home-icon {
+    margin-right: 5px;
+    color: white;
+    font-size: 14px;
+}
+.hotline {
+    padding: 0 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.hotline img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+
+}
