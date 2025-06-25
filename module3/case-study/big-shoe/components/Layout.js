@@ -3,6 +3,9 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Carousels from "./Carousels";
 import slides from '../pages/mock.json'
+import Sidebar from "./Sidebar/Sidebar";
+import Main from "./Main/Main";
+
 
 export default function Layout() {
     return(
@@ -10,12 +13,8 @@ export default function Layout() {
             <Header/>
             <Navbar/>
             <Carousels slides={slides}/>
-            <div className="sidebar">
-                sidebar
-            </div>
-            <div className="main">
-                main
-            </div>
+            <Sidebar/>
+            <Main/>
             <div className="footer">
                 footer
             </div>
