@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import ProductCard from "../ProductCard/ProductCard";
 
-export default function HighlightedProduct() {
+export default function HighlightedProduct({handleShowModal}) {
     const [products, setProducts] = useState([])
     const fetchProducts = async () => {
         try {
@@ -28,12 +28,11 @@ export default function HighlightedProduct() {
             </div>
 
             <div className="product-list">
-                {products.map(product=> (
+                {products.slice(0,12).map(product=> (
                     <ProductCard
+                        handleShowModal={handleShowModal}
                         key={product.id}
-                        name={product.name}
-                        discount_price={product.discount_price}
-                        price={product.price}
+                        product={product}
                     />
                 ))}
             </div>

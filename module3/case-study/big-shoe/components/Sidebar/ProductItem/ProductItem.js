@@ -1,0 +1,18 @@
+import "./productitem.css"
+export default function ProductItem({product}) {
+    const USD_TO_VND = 25000;
+    const discount_priceVND= product.discount_price * USD_TO_VND;
+    const priceVND= product.price * USD_TO_VND;
+    return (
+        <li className="product-item">
+            <img src={product.images[0]} alt="Giày da Converse cao cấp"/>
+            <div>
+                <p>{product.name}</p>
+                <div className="price">
+                    <span className="new-price">{discount_priceVND.toLocaleString('vi-VN')}đ</span>
+                    <span className="old-price">{priceVND.toLocaleString('vi-VN')}đ</span>
+                </div>
+            </div>
+        </li>
+    )
+}

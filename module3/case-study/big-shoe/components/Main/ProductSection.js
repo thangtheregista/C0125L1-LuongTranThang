@@ -6,12 +6,13 @@ import axios from "axios";
 import ProductCard from "../ProductCard/ProductCard";
 
 
-export default function ProductSection() {
+export default function ProductSection({handleShowModal}) {
     const [products, setProducts] = useState([])
     const fetchProducts = async () => {
         try {
             const response = await axios.get("https://685bfac189952852c2dbbe40.mockapi.io/products?is_new=true")
             setProducts(response.data)
+
             console.log(response.data)
         } catch (error) {
             console.log(error)
@@ -32,11 +33,11 @@ export default function ProductSection() {
             </div>
 
             <div className="product-list">
-                {products.map((product) => (
+                {products.slice(0,8).map((product) => (
                     <ProductCard
-                        name={product.name}
-                        price={product.price}
-                        discount_price={product.discount_price}
+                        handleShowModal={handleShowModal}
+                        key={product.id}
+                        product={product}
                     />
                 ))}
                 {/*<div className="product-card">*/}

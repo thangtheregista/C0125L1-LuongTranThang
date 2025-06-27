@@ -1,0 +1,171 @@
+/* Reset & base font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #e53935;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+}
+
+.slogan h1 {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.slogan p {
+    font-size: 12px;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 20px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: white;
+    color: red;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 1px 5px;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    padding: 10px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-right: none;
+}
+
+.search-bar button {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+}
+
+/* Banner */
+.banner img {
+    width: 100%;
+    display: block;
+}
+
+/* Section */
+.section {
+    padding: 10px;
+}
+
+.section h2 {
+    font-size: 16px;
+    border-left: 4px solid #e53935;
+    padding-left: 8px;
+    margin-bottom: 10px;
+    color: #e53935;
+}
+
+.product-list {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.product {
+    min-width: 45%;
+    border: 1px solid #eee;
+    padding: 10px;
+    position: relative;
+    background: #fff;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product p {
+    margin-top: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.discount {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ffca28;
+    color: #000;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+/* Footer */
+.footer {
+    padding: 15px;
+    background: #f5f5f5;
+    font-size: 13px;
+    color: #444;
+}
+
+.footer .support {
+    margin-bottom: 10px;
+}
+
+.footer .company {
+    margin-bottom: 10px;
+}
+
+.footer p {
+    margin-bottom: 5px;
+    text-align: center;
+}
