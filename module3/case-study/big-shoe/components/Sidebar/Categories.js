@@ -2,9 +2,10 @@ import "./categories.css"
 import { IoMdArrowDropright } from "react-icons/io";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import Link from "next/link";
 
 
-export default function Categories() {
+export default function Categories({ }) {
     const [categories, setCategories] = useState([])
     const [unisexBrands, setUnisexBrands] = useState([])
     const [menBrands, setMenBrands] = useState([])
@@ -27,7 +28,6 @@ export default function Categories() {
             const response = await axios.get("https://685bfac189952852c2dbbe40.mockapi.io/products")
             const categoriesList = [...new Set(response.data.map(product => product.category))]
             setCategories(categoriesList)
-            console.log(categoriesList)
             const menProducts = response.data.filter(product => product.gender === "Men")
             const menBrandsList = [...new Set(menProducts.map(product => product.brand))]
             setMenBrands(menBrandsList)
@@ -51,34 +51,34 @@ export default function Categories() {
                 DANH MỤC SẢN PHẨM
             </div>
             <ul className="menu-list">
-                <li><a href="#">Sản phẩm mới</a></li>
-                <li><a href="#">Sản phẩm nổi bật</a></li>
+                <li ><Link href={`/shoes/new`}>Sản phẩm mới</Link></li>
+                <li ><Link href={`/shoes/featured`}>Sản phẩm nổi bật</Link></li>
                 <li>
-                    <a href="#">Giày nam <IoMdArrowDropright /></a>
+                    <a >Giày nam <IoMdArrowDropright /></a>
                     <ul className="dropdown-submenu">
                         {menBrands.map((brand, index) => (
-                            <li key={index}><a href="#">{brand}</a></li>
+                            <li  key={index}><Link href={`/shoes/category/${brand.toLowerCase().replace(/\s+/g, "-")}`} >{brand}</Link></li>
                         ))}
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Giày nữ <IoMdArrowDropright /></a>
+                    <a >Giày nữ <IoMdArrowDropright /></a>
                     <ul className="dropdown-submenu">
                         {womenBrands.map((brand, index)=> (
-                            <li key={index}><a href="#">{brand}</a></li>
+                            <li key={index}><Link href={`/shoes/category/${brand.toLowerCase().replace(/\s+/g, "-")}`} >{brand}</Link></li>
                         ))}
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Giày unisex <IoMdArrowDropright /></a>
+                    <a >Giày unisex <IoMdArrowDropright /></a>
                     <ul className="dropdown-submenu">
                         {unisexBrands.map((brand, index)=> (
-                            <li key={index}><a href="#">{brand}</a></li>
+                            <li key={index}><Link href={`/shoes/category/${brand.toLowerCase().replace(/\s+/g, "-")}`}>{brand}</Link></li>
                         ))}
                     </ul>
                 </li>
                 {vietnameseCategories.map((category, index)=> (
-                    <li key={index}><a href="#">{category}</a></li>
+                    <li key={index} ><Link href={`/shoes/category/${categories[index].toLowerCase().replace(/\s+/g, "-")}`}>{category}</Link></li>
                 ))}
 
                 {/*<li><a href="#" className="more-link">Xem thêm ...</a></li>*/}

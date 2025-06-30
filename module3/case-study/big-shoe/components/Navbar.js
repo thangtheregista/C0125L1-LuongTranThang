@@ -2,12 +2,12 @@ import "./navbar.css"
 import { FaHome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 
-export default function Navbar() {
+export default function Navbar({}) {
     return (
         <nav className="main-nav">
             <div className="main-nav-wrapper">
                 <ul className="nav-links">
-                    <li className="active"><a href="#"><FaHome className="home-icon" />TRANG CHỦ</a></li>
+                    <li  className="active"><a href="#"><FaHome className="home-icon" />TRANG CHỦ</a></li>
                     <li><a href="#">VỀ CHÚNG TÔI</a></li>
                     <li>
                         <a href="#">SẢN PHẨM <span>▼</span></a>

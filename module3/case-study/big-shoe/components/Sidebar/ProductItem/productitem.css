@@ -5,6 +5,10 @@
     width: 100%;
     padding: 10px;
 }
+.product-item a {
+    text-decoration: none;
+    color: black;
+}
 .product-item img {
     width: 80px;
     display: block;
@@ -29,16 +33,16 @@
 .product-item .price {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     gap: 10px;
 }
 .product-item .price .current-price {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
 }
 .product-item .price .old-price {
-    font-size: 16px;
+    font-size: 14px;
     text-decoration: line-through;
     color: #888;
 }

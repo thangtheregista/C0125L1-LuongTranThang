@@ -39,7 +39,10 @@
     justify-content: space-between;
 }
 .menu-list li:hover > a {
-    color:red
+    color:red !important;
+}
+.menu-list a:hover {
+    color: red
 }
 .menu-list li:hover .dropdown-submenu {
     display: flex;

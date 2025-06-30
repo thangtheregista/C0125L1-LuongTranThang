@@ -7,17 +7,10 @@ import Sidebar from "./Sidebar/Sidebar";
 import Main from "./Main/Main";
 
 
-export default function Layout() {
+export default function Layout({children}) {
     return(
         <div className="layout">
-            <Header/>
-            <Navbar/>
-            <Carousels slides={slides}/>
-            <Sidebar/>
-            <Main/>
-            <div className="footer">
-                footer
-            </div>
+            {children}
         </div>
     )
 }

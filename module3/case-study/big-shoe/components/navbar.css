@@ -4,6 +4,9 @@
     display: flex;
     justify-content: center;
     height: 55px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 .main-nav-wrapper {
     display: flex;

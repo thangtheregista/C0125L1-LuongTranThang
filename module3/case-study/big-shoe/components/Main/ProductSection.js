@@ -12,8 +12,6 @@ export default function ProductSection({handleShowModal}) {
         try {
             const response = await axios.get("https://685bfac189952852c2dbbe40.mockapi.io/products?is_new=true")
             setProducts(response.data)
-
-            console.log(response.data)
         } catch (error) {
             console.log(error)
         }

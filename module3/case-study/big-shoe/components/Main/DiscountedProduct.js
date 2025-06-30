@@ -5,10 +5,6 @@ export default function DiscountedProduct() {
         <div className="product-section">
             <div className="section-header">
                 <span>SẢN PHẨM KHUYẾN MÃI</span>
-                {/*<div className="nav-arrows">*/}
-                {/*    <span>❮</span>*/}
-                {/*    <span>❯</span>*/}
-                {/*</div>*/}
             </div>
 
             <div className="product-list">

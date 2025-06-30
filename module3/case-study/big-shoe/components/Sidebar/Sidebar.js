@@ -3,10 +3,12 @@ import Categories from "./Categories";
 import SupportBox from "./SupportBox";
 import ProductBox from "./ProductBox";
 
-export default function Sidebar() {
+export default function Sidebar({}) {
     return(
         <aside className="sidebar">
-            <Categories/>
+            <Categories
+
+            />
             <SupportBox/>
             <ProductBox/>
         </aside>

@@ -9,7 +9,6 @@ export default function HighlightedProduct({handleShowModal}) {
         try {
             const response = await axios.get("https://685bfac189952852c2dbbe40.mockapi.io/products?is_featured=true")
             setProducts(response.data)
-            console.log(response.data)
         } catch (error) {
             console.log(error)
         }
@@ -21,10 +20,6 @@ export default function HighlightedProduct({handleShowModal}) {
         <div className="product-section">
             <div className="section-header">
                 <span>SẢN PHẨM NỔI BẬT</span>
-                {/*<div className="nav-arrows">*/}
-                {/*    <span>❮</span>*/}
-                {/*    <span>❯</span>*/}
-                {/*</div>*/}
             </div>
 
             <div className="product-list">
