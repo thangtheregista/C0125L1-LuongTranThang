@@ -121,6 +121,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    color: white;
 }
 .hotline img {
     width: 20px;

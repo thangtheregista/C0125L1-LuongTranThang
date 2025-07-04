@@ -4,15 +4,25 @@
       "id": "2",
       "name": "Trần Thị B",
       "age": 22,
-      "email": "abc@gmail.com",
+      "email": [
+        "def@gmail.com"
+      ],
       "major": "Kinh tế"
     },
     {
-      "id": "3",
-      "name": "Nguyễn Văn C",
-      "age": 27,
-      "email": "def@gmail.com",
-      "major": "Công nghệ thông tin"
+      "id": "b1d6",
+      "name": [
+        "Lương Trần Thắng"
+      ],
+      "age": [
+        "27"
+      ],
+      "email": [
+        "thangtheregista@gmail.com"
+      ],
+      "major": [
+        "CNTT"
+      ]
     }
   ]
 }

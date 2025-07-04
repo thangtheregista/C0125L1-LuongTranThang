@@ -1,16 +1,23 @@
 {
-  "orders": [
+  "posts": [
     {
-      "id": 1,
-      "customer": "Mai Hương",
-      "total": 150,
-      "status": "pending"
-    },
-    {
-      "id": 2,
-      "customer": "Phan Minh",
-      "total": 320,
-      "status": "shipped"
+      "0": {
+        "title": "",
+        "content": "",
+        "author": "",
+        "createdAt": ""
+      },
+      "id": "bd7d4f7c-93a6-40c6-a73a-be98866c9796",
+      "title": [
+        "title1"
+      ],
+      "content": [
+        "content1"
+      ],
+      "author": [
+        "author1"
+      ],
+      "createdAt": "Fri Jun 20 2025 14:25:39 GMT+0700 (Giờ Đông Dương)"
     }
   ]
 }

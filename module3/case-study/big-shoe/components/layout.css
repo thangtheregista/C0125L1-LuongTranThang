@@ -6,6 +6,7 @@
     grid-template-columns: minmax(0px, 360px) repeat(8, 150px) minmax(0px, 360px);
     grid-template-rows: 120px 55px auto auto 510px;
     background-color: #F5F5F5;
+    min-height: 100vh;
 }
 .header {
     grid-column: 1/ -1;
